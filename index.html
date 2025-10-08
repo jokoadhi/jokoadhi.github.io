@@ -55,6 +55,18 @@
         background-color: #e9ecef;
       }
     </style>
+
+    <script>
+      // Skrip untuk menghapus '/index.html' dari URL
+      if (window.location.pathname.endsWith("/index.html")) {
+        // Ganti URL saat ini tanpa memuat ulang halaman
+        window.history.replaceState(
+          {},
+          document.title,
+          window.location.pathname.replace("/index.html", "/")
+        );
+      }
+    </script>
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
