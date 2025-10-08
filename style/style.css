@@ -1,0 +1,36 @@
+/* CSS Kustom Sederhana */
+body {
+  font-family: "Montserrat", sans-serif;
+  background-color: #f8f9fa; /* Warna latar belakang sangat terang */
+}
+.hero-section {
+  background-color: #0d6efd; /* Biru Bootstrap */
+  color: white;
+  padding: 80px 0;
+  margin-bottom: 40px;
+}
+.tech-tag {
+  font-family: "Roboto Mono", monospace;
+  display: inline-block;
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 4px 10px;
+  border-radius: 5px;
+  margin-right: 5px;
+  font-size: 0.9em;
+}
+.card-module {
+  transition: transform 0.3s ease-in-out;
+  border-left: 5px solid #ffc107; /* Warna aksen Oranye */
+}
+.card-module:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+.list-group-item {
+  border: none;
+  padding: 10px 15px;
+  transition: background-color 0.2s;
+}
+.list-group-item:hover {
+  background-color: #e9ecef;
+}

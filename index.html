@@ -17,44 +17,7 @@
       rel="stylesheet"
     />
 
-    <style>
-      /* CSS Kustom Sederhana */
-      body {
-        font-family: "Montserrat", sans-serif;
-        background-color: #f8f9fa; /* Warna latar belakang sangat terang */
-      }
-      .hero-section {
-        background-color: #0d6efd; /* Biru Bootstrap */
-        color: white;
-        padding: 80px 0;
-        margin-bottom: 40px;
-      }
-      .tech-tag {
-        font-family: "Roboto Mono", monospace;
-        display: inline-block;
-        background-color: rgba(255, 255, 255, 0.2);
-        padding: 4px 10px;
-        border-radius: 5px;
-        margin-right: 5px;
-        font-size: 0.9em;
-      }
-      .card-module {
-        transition: transform 0.3s ease-in-out;
-        border-left: 5px solid #ffc107; /* Warna aksen Oranye */
-      }
-      .card-module:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-      }
-      .list-group-item {
-        border: none;
-        padding: 10px 15px;
-        transition: background-color 0.2s;
-      }
-      .list-group-item:hover {
-        background-color: #e9ecef;
-      }
-    </style>
+    <link rel="stylesheet" href="/style/style.css" />
 
     <script>
       // Skrip untuk menghapus '/index.html' dari URL
@@ -98,7 +61,7 @@
 
     <header class="hero-section">
       <div class="container text-center">
-        <h1>📚 Dokumentasi Ilmu Komputer & Jaringan</h1>
+        <h1>📚 Dokumentasi Ilmu Jaringan & Security</h1>
         <p class="lead mt-3 mb-4">
           Kumpulan catatan, praktik, dan studi kasus terbuka dari perjalanan
           belajar mandiri.
@@ -119,18 +82,20 @@
           <div class="col">
             <div class="card card-module h-100 shadow-sm">
               <div class="card-body">
-                <h5 class="card-title text-success">
-                  🌐 Jaringan Komputer Dasar
-                </h5>
+                <h5 class="card-title text-success">🌐 Jaringan Dasar</h5>
                 <p class="card-text text-muted">
-                  Fondasi teori jaringan, OSI Layer, Subnetting, dan konfigurasi
-                  perangkat.
+                  Fondasi teori jaringan dan konfigurasi perangkat.
                 </p>
                 <ul class="list-group list-group-flush mt-3">
                   <li class="list-group-item">
-                    <a href="pages/jaringan/dasar-mikrotik.html"
+                    <a href="pages/jaringan/dasar-mikrotik/index.html"
                       >Konfigurasi Dasar Mikrotik</a
                     >
+                  </li>
+                  <li class="list-group-item">
+                    <a href="pages/jaringan/registrasi-c320/index.html">
+                      Registrasi ONT di OLT C320
+                    </a>
                   </li>
                 </ul>
               </div>
@@ -145,11 +110,11 @@
                 </h5>
                 <p class="card-text text-muted">
                   Administrasi Linux, manajemen server web, dan otomatisasi
-                  dengan *scripting*.
+                  dengan scripting.
                 </p>
                 <ul class="list-group list-group-flush mt-3">
                   <li class="list-group-item">
-                    <a href="pages/server/dasar-linux.html"
+                    <a href="pages/server/dasar-linux/index.html"
                       >Perintah Dasar Linux</a
                     >
                   </li>
@@ -165,14 +130,12 @@
                   🔒 Keamanan Jaringan (Security)
                 </h5>
                 <p class="card-text text-muted">
-                  Konsep pertahanan, enkripsi, *firewalling*, dan praktik
+                  Konsep pertahanan, enkripsi, firewalling, dan praktik
                   pengerasan sistem.
                 </p>
                 <ul class="list-group list-group-flush mt-3">
                   <li class="list-group-item">
-                    <a href="pages/security/cia-triad.html"
-                      >Firewall Pada Linux Server</a
-                    >
+                    <a href="#">Firewall Pada Linux Server (on progress)</a>
                   </li>
                 </ul>
               </div>
@@ -198,14 +161,15 @@
         <div class="row justify-content-center">
           <div class="col-lg-8">
             <p class="text-center">
-              Proyek ini lahir dari keyakinan bahwa *cara terbaik untuk belajar
-              adalah dengan mengajar*. Dengan mendokumentasikan setiap langkah
-              dan tantangan, saya berharap ini menjadi sumber daya yang berharga
-              bagi Anda yang sedang menapaki bidang Ilmu Komputer dan Jaringan.
+              Proyek ini lahir dari keyakinan bahwa
+              <b>cara terbaik untuk belajar adalah dengan mengajar</b>. Dengan
+              mendokumentasikan setiap langkah dan tantangan, saya berharap ini
+              menjadi sumber daya yang berharga bagi Kalian yang sedang menapaki
+              bidang Ilmu Komputer dan Jaringan.
             </p>
             <p class="text-center text-muted">
-              Kode sumber, materi, dan struktur situs ini sepenuhnya **Open
-              Source** dan dapat dilihat di repositori GitHub.
+              Kode sumber, materi, dan struktur situs ini sepenuhnya
+              <b> Open Source </b> dan dapat dilihat di repositori GitHub.
             </p>
           </div>
         </div>
@@ -214,9 +178,7 @@
 
     <footer class="bg-dark text-white text-center py-3">
       <div class="container">
-        <p class="mb-0">
-          &copy; 2025 Joko Adhi. Dibangun dengan Bootstrap & GitHub Pages.
-        </p>
+        <p class="mb-0">&copy; 2025 Joko Adhi. Moodle OpenSource.</p>
       </div>
     </footer>
 

@@ -1,0 +1,43 @@
+/* CSS Kustom Halaman Materi */
+body {
+  font-family: "Montserrat", sans-serif;
+  background-color: #f8f9fa;
+}
+
+/* Navbar seperti halaman utama */
+.navbar-brand {
+  font-weight: 700;
+}
+
+/* Sidebar Navigasi */
+.sidebar {
+  position: sticky; /* Agar sidebar tetap saat discroll */
+  top: 0;
+  height: 100vh;
+  padding-top: 20px;
+  background-color: #e9ecef; /* Warna latar belakang abu-abu muda */
+  border-right: 1px solid #dee2e6;
+}
+
+/* Konten Utama */
+.main-content {
+  padding: 40px;
+}
+
+/* Gaya Blok Kode */
+pre {
+  background-color: #343a40; /* Hitam gelap */
+  color: #f8f9fa; /* Putih terang */
+  padding: 15px;
+  border-radius: 6px;
+  overflow-x: auto; /* Agar kode yang panjang bisa discroll horizontal */
+  font-family: "Roboto Mono", monospace; /* Font monospace untuk kode */
+  margin-bottom: 20px;
+}
+
+/* Styling Peringatan/Tips */
+.alert-custom {
+  border-left: 5px solid #0d6efd;
+  background-color: #e9f0ff;
+  color: #0d6efd;
+}
