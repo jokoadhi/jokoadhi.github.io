@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>📚 Dokumentasi Jaringan & Komputer | Joko Adhi</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Mono&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* CSS Kustom Sederhana */
+      body {
+        font-family: "Montserrat", sans-serif;
+        background-color: #f8f9fa; /* Warna latar belakang sangat terang */
+      }
+      .hero-section {
+        background-color: #0d6efd; /* Biru Bootstrap */
+        color: white;
+        padding: 80px 0;
+        margin-bottom: 40px;
+      }
+      .tech-tag {
+        font-family: "Roboto Mono", monospace;
+        display: inline-block;
+        background-color: rgba(255, 255, 255, 0.2);
+        padding: 4px 10px;
+        border-radius: 5px;
+        margin-right: 5px;
+        font-size: 0.9em;
+      }
+      .card-module {
+        transition: transform 0.3s ease-in-out;
+        border-left: 5px solid #ffc107; /* Warna aksen Oranye */
+      }
+      .card-module:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      }
+      .list-group-item {
+        border: none;
+        padding: 10px 15px;
+        transition: background-color 0.2s;
+      }
+      .list-group-item:hover {
+        background-color: #e9ecef;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container">
+        <a class="navbar-brand" href="#">Joko Adhi Docs</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link active" href="#modules">Modul</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#about">Tentang</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <header class="hero-section">
+      <div class="container text-center">
+        <h1>📚 Dokumentasi Ilmu Komputer & Jaringan</h1>
+        <p class="lead mt-3 mb-4">
+          Kumpulan catatan, praktik, dan studi kasus terbuka dari perjalanan
+          belajar mandiri.
+        </p>
+        <p>
+          Fokus: <span class="tech-tag">Networking</span>
+          <span class="tech-tag">Linux Server</span>
+          <span class="tech-tag">Cybersecurity</span>
+        </p>
+      </div>
+    </header>
+
+    <div class="container">
+      <section id="modules" class="mb-5">
+        <h2 class="text-center mb-4 text-primary">Modul Pembelajaran Utama</h2>
+
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+          <div class="col">
+            <div class="card card-module h-100 shadow-sm">
+              <div class="card-body">
+                <h5 class="card-title text-success">
+                  🌐 Jaringan Komputer Dasar
+                </h5>
+                <p class="card-text text-muted">
+                  Fondasi teori jaringan, OSI Layer, Subnetting, dan konfigurasi
+                  perangkat.
+                </p>
+                <ul class="list-group list-group-flush mt-3">
+                  <li class="list-group-item">
+                    <a href="pages/jaringan/dasar-mikrotik.html"
+                      >Konfigurasi Dasar Mikrotik</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="card card-module h-100 shadow-sm">
+              <div class="card-body">
+                <h5 class="card-title text-success">
+                  💻 Sistem Operasi & Server
+                </h5>
+                <p class="card-text text-muted">
+                  Administrasi Linux, manajemen server web, dan otomatisasi
+                  dengan *scripting*.
+                </p>
+                <ul class="list-group list-group-flush mt-3">
+                  <li class="list-group-item">
+                    <a href="pages/server/linux-basics.html"
+                      >Perintah Dasar Linux</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="card card-module h-100 shadow-sm">
+              <div class="card-body">
+                <h5 class="card-title text-success">
+                  🔒 Keamanan Jaringan (Security)
+                </h5>
+                <p class="card-text text-muted">
+                  Konsep pertahanan, enkripsi, *firewalling*, dan praktik
+                  pengerasan sistem.
+                </p>
+                <ul class="list-group list-group-flush mt-3">
+                  <li class="list-group-item">
+                    <a href="pages/security/cia-triad.html"
+                      >Firewall Pada Linux Server</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center mt-5">
+          <a
+            href="https://github.com/jokoadhi/jokoadhi.github.io/issues"
+            target="_blank"
+            class="btn btn-warning btn-lg shadow"
+          >
+            Punya Pertanyaan atau Saran Topik? Buka Issue di GitHub!
+          </a>
+        </div>
+      </section>
+
+      <hr />
+
+      <section id="about" class="mt-5 mb-5">
+        <h2 class="text-center mb-3">Filosofi Dokumentasi</h2>
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
+            <p class="text-center">
+              Proyek ini lahir dari keyakinan bahwa *cara terbaik untuk belajar
+              adalah dengan mengajar*. Dengan mendokumentasikan setiap langkah
+              dan tantangan, saya berharap ini menjadi sumber daya yang berharga
+              bagi Anda yang sedang menapaki bidang Ilmu Komputer dan Jaringan.
+            </p>
+            <p class="text-center text-muted">
+              Kode sumber, materi, dan struktur situs ini sepenuhnya **Open
+              Source** dan dapat dilihat di repositori GitHub.
+            </p>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <footer class="bg-dark text-white text-center py-3">
+      <div class="container">
+        <p class="mb-0">
+          &copy; 2025 Joko Adhi. Dibangun dengan Bootstrap & GitHub Pages.
+        </p>
+      </div>
+    </footer>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

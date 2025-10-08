@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Konfigurasi dasar mikrotik</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Mono&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* CSS Kustom Halaman Materi */
+      body {
+        font-family: "Montserrat", sans-serif;
+        background-color: #f8f9fa;
+      }
+
+      /* Navbar seperti halaman utama */
+      .navbar-brand {
+        font-weight: 700;
+      }
+
+      /* Sidebar Navigasi */
+      .sidebar {
+        position: sticky; /* Agar sidebar tetap saat discroll */
+        top: 0;
+        height: 100vh;
+        padding-top: 20px;
+        background-color: #e9ecef; /* Warna latar belakang abu-abu muda */
+        border-right: 1px solid #dee2e6;
+      }
+
+      /* Konten Utama */
+      .main-content {
+        padding: 40px;
+      }
+
+      /* Gaya Blok Kode */
+      pre {
+        background-color: #343a40; /* Hitam gelap */
+        color: #f8f9fa; /* Putih terang */
+        padding: 15px;
+        border-radius: 6px;
+        overflow-x: auto; /* Agar kode yang panjang bisa discroll horizontal */
+        font-family: "Roboto Mono", monospace; /* Font monospace untuk kode */
+        margin-bottom: 20px;
+      }
+
+      /* Styling Peringatan/Tips */
+      .alert-custom {
+        border-left: 5px solid #0d6efd;
+        background-color: #e9f0ff;
+        color: #0d6efd;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand ms-3" href="../../index.html">📚 Joko Adhi Docs</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto me-3">
+            <li class="nav-item">
+              <a class="nav-link" href="../../index.html#modules">Modul Utama</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../../index.html#about">Tentang</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container-fluid">
+      <div class="row">
+        <nav
+          id="sidebarMenu"
+          class="col-md-3 col-lg-2 d-md-block sidebar collapse"
+        >
+          <div class="position-sticky pt-3">
+            <h6
+              class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted text-uppercase"
+            >
+              Jaringan Komputer
+            </h6>
+            <ul class="nav flex-column mb-2">
+              <li class="nav-item">
+                <a
+                  class="nav-link active"
+                  aria-current="page"
+                  href="dasar-mikrotik.html"
+                >
+                  Konfigurasi Dasar Mikrotik
+                </a>
+              </li>
+            </ul>
+
+            <h6
+              class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted text-uppercase"
+            >
+              Topik Lain
+            </h6>
+            <ul class="nav flex-column">
+              <li class="nav-item">
+                <a class="nav-link" href="../server/linux-basics.html">
+                  Perintah Dasar Linux
+                </a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+
+        <main class="col-md-9 ms-sm-auto col-lg-10 main-content">
+          <h1 class="mb-4">KONFIGURASI DASAR MIKROTIK</h1>
+          <p class="text-muted">Diperbarui: 9 Oktober 2025</p>
+
+          <hr class="mb-5" />
+
+          <section id="introduction" class="mb-5">
+            <h2>1. Apa Itu Konfigurasi Dasar Mikrotik</h2>
+            <p>
+              Konfigurasi dasar Mikrotik adalah serangkaian langkah awal yang
+              wajib dilakukan pada perangkat router Mikrotik agar router
+              tersebut dapat berfungsi sebagai penghubung jaringan lokal (LAN)
+              ke internet (WAN/ISP). Tujuan utamanya adalah membuat perangkat di
+              jaringan lokal dapat mengakses internet.
+            </p>
+          </section>
+
+          <section id="praktik" class="mb-5">
+            <h2>2. Praktik: Langkah-langkah Penerapan</h2>
+            <p>
+                Pertama buat topologinya dahulu seperti berikut: <br>
+                -   Ether1 Mikrotik kearah router ISP <br>
+                -   Ether2 kearah PC berfungsi sebagai client LAN ataupun juga untuk me-remote mikrotiknya <br><br>
+
+                Jika sudah sesuai topologi diatas, selanjutnya membuka aplikasi winbox pada PC.
+            </p>
+                <div class="alert alert-custom" role="alert">
+                    💡 Penting: Winbox adalah aplikasi khusus yang berfungsi untuk remote semua jenis merek Mikrotik dari Router, Switch dan lainnya.
+                </div>
+
+                <section id="gambar-praktik" class="mb-5">
+                    <figure class="figure mt-4 mb-4">
+                        <img 
+                            src="../../img/mikrotik/1.jpeg" 
+                            class="img-fluid rounded shadow" 
+                            alt="Tampilan awal winbox"
+                        >
+                        <figcaption class="figure-caption text-center mt-2">
+                            Gambar 1.1: Tampilan awal winbox.
+                        </figcaption>
+                    </figure>
+                    <p>
+                        Jika sudah terbuka seperti gambar diatas, klik pada bagian MAC Address mikrotik yang muncul, maka bagian parameter <b>Connect To </b> akan terisi otomatis oleh MAC Address nya, untuk username default adalah admin dan password default adalah kosong (tidak diisi), lalu klik Connect
+                    </p>
+                    <figure class="figure mt-4 mb-4">
+                        <img 
+                            src="../../img/mikrotik/2.jpeg" 
+                            class="img-fluid rounded shadow" 
+                            alt="Menu IP Address"
+                        >
+                        <figcaption class="figure-caption text-center mt-2">
+                            Gambar 1.2: Menu IP Address.
+                        </figcaption>
+                    </figure>
+                    <p>
+                        Jika sudah masuk ke mikrotik dan muncul halaman awal winbox seperti gambar diatas, yang pertama ini kita kan setting IP pada ether1 yang mengarah ke router ISP. masuk bagian IP -> Address. 
+                    </p>
+                    <figure class="figure mt-4 mb-4">
+                        <img 
+                            src="../../img/mikrotik/3.jpeg" 
+                            class="img-fluid rounded shadow" 
+                            alt="Setting Ether1"
+                        >
+                        <figcaption class="figure-caption text-center mt-2">
+                            Gambar 1.3: Setting ether1.
+                        </figcaption>
+                    </figure>
+                    <p>
+                        Klik pada tanda plus (+) lalu akan muncul window baru, isikan IP yang satu subnet dengan IP Router ISP pada kolom Address, jangan lupa juga diberi prefix sesuai IP Router ISP, untuk interface kita pilih yang mengarah Router ISP, dalam dokumentasi ini kita memilih ether1. jika sudah lalu klik Apply OK.
+                    </p>
+                    <figure class="figure mt-4 mb-4">
+                        <img 
+                            src="../../img/mikrotik/4.jpeg" 
+                            class="img-fluid rounded shadow" 
+                            alt="Setting DNS"
+                        >
+                        <figcaption class="figure-caption text-center mt-2">
+                            Gambar 1.4: Setting DNS.
+                        </figcaption>
+                    </figure>
+                    <div class="alert alert-custom" role="alert">
+                    💡 Penting: DNS adalah sistem yang berfungsi sebagai "buku telepon" atau penerjemah di internet. Tugas utamanya adalah mengubah nama domain yang mudah diingat manusia (seperti www.google.com) menjadi alamat IP numerik yang digunakan oleh komputer untuk berkomunikasi (seperti 142.250.191.46).
+                </div>
+                    <p>
+                        Masuk bagian IP -> DNS, ketik IP Address DNS Server yang diinginkan pada kolom Servers, dalam dokumentasi ini kita menggunakan DNS Server kepunyaan Google yaitu 8.8.8.8 <br><br>
+                        jangan lupa centang pada Allow Remote Request yang berfungsi agar router kita bisa menjadi DNS Server di client Router kita.
+                    </p>
+                    <figure class="figure mt-4 mb-4">
+                        <img 
+                            src="../../img/mikrotik/5.jpeg" 
+                            class="img-fluid rounded shadow" 
+                            alt="Tampilan IP Routes"
+                        >
+                        <figcaption class="figure-caption text-center mt-2">
+                            Gambar 1.5: Tampilan IP Routes.
+                        </figcaption>
+                    </figure>
+                    <p>
+                        Masuk ke bagian IP -> Routes, kita akan setting IP Gateway yang berfungsi sebagai gerbang internet, tanpa adanya gateway internet tidak akan bisa digunakan, hanya sebagai jaringan Lokal biasa.
+                    </p>
+                    <figure class="figure mt-4 mb-4">
+                        <img 
+                            src="../../img/mikrotik/6.jpeg" 
+                            class="img-fluid rounded shadow" 
+                            alt="Setting IP Gateway"
+                        >
+                        <figcaption class="figure-caption text-center mt-2">
+                            Gambar 1.6: Setting IP Gateway.
+                        </figcaption>
+                    </figure>
+                    <p>
+                        Klik bagian tombol plus (+) pada menu Routes List akan muncul window seperti gambar diatas, isi bagian kolom gateway dengan IP Gateway yang diberi oleh Router ISP, untuk kolom Dst.Address dibuat 0.0.0.0/0 adalah berarti yang menuju ke semua IP Publik.
+                    </p>
+                    <figure class="figure mt-4 mb-4">
+                        <img 
+                            src="../../img/mikrotik/7.jpeg" 
+                            class="img-fluid rounded shadow" 
+                            alt="tes ping ke google"
+                        >
+                        <figcaption class="figure-caption text-center mt-2">
+                            Gambar 1.7: tes ping ke google.
+                        </figcaption>
+                    </figure>
+                    <div class="alert alert-custom" role="alert">
+                    💡 Penting: 
+                        PING adalah singkatan dari Packet Internet Gopher. Ini adalah utilitas atau tool diagnostik jaringan yang paling sering digunakan untuk menguji konektivitas antara dua perangkat di dalam sebuah jaringan, baik jaringan lokal (LAN) maupun internet.
+                    </div>
+                    <p>
+                        harusnya sampai langkah ini internet pada mikrotik sudah muncul, cara melakukan pengujian apakah internet sudah muncul atau belum adalah dengan cara melakukan ping ke arah google.com, jika menunjukkan Reply maka internet berarti sudah muncul, jika meununjukkan timeout berarti perlu mengecek lagi konfigurasi sebelumnya.
+                    </p>
+                    <figure class="figure mt-4 mb-4">
+                        <img 
+                            src="../../img/mikrotik/8.jpeg" 
+                            class="img-fluid rounded shadow" 
+                            alt="tampilan firewall NAT"
+                        >
+                        <figcaption class="figure-caption text-center mt-2">
+                            Gambar 1.8: tampilan firewall NAT.
+                        </figcaption>
+                    </figure>
+                    <div class="alert alert-custom" role="alert">
+                    💡 Penting: 
+                        NAT adalah Network Address Translation yang berfungsi untuk menyamarkan IP Private ke IP Publik, karena IP Private tidak bisa mengakses internet, maka disamarkan ke IP Publik agar client" yang dibawah router kita bisa mengakses internet melalui Router kita.
+                    </div>
+                    <p>
+                        Buka bagian IP -> Firewall -> NAT, disini adalah tempat untuk melakukan konfigurasi NAT pada mikrotik kita.
+                    </p>
+                    <figure class="figure mt-4 mb-4">
+                        <img 
+                            src="../../img/mikrotik/9.jpeg" 
+                            class="img-fluid rounded shadow" 
+                            alt="Setting NAT Srcnat"
+                        >
+                        <figcaption class="figure-caption text-center mt-2">
+                            Gambar 1.9: setting NAT Srcnat.
+                        </figcaption>
+                    </figure>
+                    <p>
+                        Klik tombol plus (+) akan muncul window, bagian tab General pada kolom Chain pilih srcnat, bagian Out.Interface pilih interface yang mengarah ke Router ISP dalam hal ini kita memilih ether1.
+                    </p>
+                    <figure class="figure mt-4 mb-4">
+                        <img 
+                            src="../../img/mikrotik/10.jpeg" 
+                            class="img-fluid rounded shadow" 
+                            alt="Setting NAT Srcnat"
+                        >
+                        <figcaption class="figure-caption text-center mt-2">
+                            Gambar 2.0: setting NAT Masquerade.
+                        </figcaption>
+                    </figure>
+                    <p>
+                        Pindah ke tab Action, pada kolom Action pilih Masquerade yang berfungsi untuk menyamarkan IP Private ke IP Publik, lalu klik Apply OK. <br><br>
+                        sampai langkah ini mikrotik dan client mikrotik kita seharusnya sudah bisa mendapatkan akses internet.
+                    </p>
+                </section>
+
+            
+            
+
+
+
+
+
+
+
+
+
+            <!-- <div class="alert alert-custom" role="alert">
+              **💡 Penting:** [Sistem Operasi] adalah otak dari komputer dan
+              server.
+            </div> -->
+
+
+            <!-- <pre><code>
+# Perintah untuk melihat konfigurasi jaringan di Linux
+ip a
+  
+# Perintah untuk menguji koneksi
+ping 8.8.8.8
+                    </code></pre> -->
+
+
+
+          <hr />
+
+          <div class="text-center mt-5 mb-5 p-3 bg-light rounded shadow-sm">
+            **Selesai.** Anda telah mencapai akhir dari topik ini. Silakan pilih
+            topik lain melalui Sidebar di sebelah kiri atau kembali ke
+            <a href="../../index.html" class="text-decoration-none"
+              >Halaman Modul Utama</a
+            >.
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
