@@ -32,9 +32,9 @@
     </script>
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
       <div class="container">
-        <a class="navbar-brand" href="#">Joko Adhi Docs</a>
+        <a class="navbar-brand" href="/">📚 Joko Adhi Docs</a>
         <button
           class="navbar-toggler"
           type="button"
@@ -54,53 +54,96 @@
             <li class="nav-item">
               <a class="nav-link" href="#about">Tentang</a>
             </li>
+            <li class="nav-item">
+              <a
+                class="btn btn-outline-light ms-lg-3"
+                href="https://github.com/jokoadhi/jokoadhi.github.io"
+                target="_blank"
+                role="button"
+              >
+                Lihat di GitHub
+              </a>
+            </li>
           </ul>
         </div>
       </div>
     </nav>
 
-    <header class="hero-section">
-      <div class="container text-center">
-        <h1>📚 Dokumentasi Ilmu Jaringan & Security</h1>
-        <p class="lead mt-3 mb-4">
-          Kumpulan catatan, praktik, dan studi kasus terbuka dari perjalanan
-          belajar mandiri.
-        </p>
-        <p>
-          Fokus: <span class="tech-tag">Networking</span>
-          <span class="tech-tag">Linux Server</span>
-          <span class="tech-tag">Cybersecurity</span>
-        </p>
+    <header class="py-5 bg-dark text-white hero-section">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-8 text-lg-start text-center">
+            <h1 class="display-4 fw-bold mb-3">
+              Dokumentasi Ilmu Jaringan & Security
+            </h1>
+            <p class="lead text-muted mb-4">
+              Kumpulan catatan, praktik, dan studi kasus terbuka dari perjalanan
+              belajar mandiri di bidang Networking, Linux Server, dan
+              Cybersecurity.
+            </p>
+            <p class="fs-6">
+              Fokus: <span class="badge bg-primary me-2">Networking</span>
+              <span class="badge bg-secondary me-2">Linux Server</span>
+              <span class="badge bg-success">Cybersecurity</span>
+            </p>
+          </div>
+          <div class="col-lg-4 d-none d-lg-block text-center">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="100"
+              height="100"
+              fill="#0d6efd"
+              class="bi bi-code-square"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"
+              />
+              <path
+                d="M6.146 5.567a.5.5 0 0 1 .035.614l-2.5 4A.5.5 0 0 1 3.5 10h-1a.5.5 0 0 1-.484-.683l2.5-4a.5.5 0 0 1 .614-.035zm4 0a.5.5 0 0 0-.614-.035l-2.5 4a.5.5 0 0 0 .484.683h1a.5.5 0 0 0 .375-.683l-2.5-4a.5.5 0 0 0-.035-.614z"
+              />
+            </svg>
+          </div>
+        </div>
       </div>
     </header>
 
-    <div class="container">
+    <div class="container my-5">
       <section id="modules" class="mb-5">
-        <h2 class="text-center mb-4 text-primary">Modul Pembelajaran Utama</h2>
+        <h2 class="text-center mb-5 border-bottom pb-3">
+          Modul Pembelajaran Utama
+        </h2>
 
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
           <div class="col">
-            <div class="card card-module h-100 shadow-sm">
-              <div class="card-body">
-                <h5 class="card-title text-success">🌐 Jaringan Dasar</h5>
-                <p class="card-text text-muted">
-                  Fondasi teori jaringan dan konfigurasi perangkat.
+            <div class="card card-module h-100 shadow-lg border-0">
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title text-primary fs-4">🌐 Jaringan Dasar</h5>
+                <p class="card-text text-muted mb-4">
+                  Fondasi teori jaringan dan konfigurasi perangkat (Mikrotik,
+                  Huawei, dll.).
                 </p>
-                <ul class="list-group list-group-flush mt-3">
-                  <li class="list-group-item">
-                    <a href="pages/jaringan/dasar-mikrotik/"
+                <ul class="list-group list-group-flush flex-grow-1">
+                  <li class="list-group-item position-relative">
+                    <a
+                      href="pages/jaringan/dasar-mikrotik/"
+                      class="text-decoration-none"
                       >Konfigurasi Dasar Mikrotik</a
                     >
                   </li>
-                  <li class="list-group-item">
-                    <a href="pages/jaringan/registrasi-c320/">
-                      Registrasi ONT di OLT C320
-                    </a>
+                  <li class="list-group-item position-relative">
+                    <a
+                      href="pages/jaringan/registrasi-c320/"
+                      class="text-decoration-none"
+                      >Registrasi ONT di OLT C320</a
+                    >
                   </li>
-                  <li class="list-group-item">
-                    <a href="pages/jaringan/setting-wan-hg8145v5/">
-                      Setting WAN Huawei HG8145v5
-                    </a>
+                  <li class="list-group-item position-relative">
+                    <a
+                      href="pages/jaringan/setting-wan-hg8145v5/"
+                      class="text-decoration-none"
+                      >Setting WAN Huawei HG8145v5</a
+                    >
                   </li>
                 </ul>
               </div>
@@ -108,39 +151,54 @@
           </div>
 
           <div class="col">
-            <div class="card card-module h-100 shadow-sm">
-              <div class="card-body">
-                <h5 class="card-title text-success">
+            <div class="card card-module h-100 shadow-lg border-0">
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title text-primary fs-4">
                   💻 Sistem Operasi & Server
                 </h5>
-                <p class="card-text text-muted">
+                <p class="card-text text-muted mb-4">
                   Administrasi Linux, manajemen server web, dan otomatisasi
                   dengan scripting.
                 </p>
-                <ul class="list-group list-group-flush mt-3">
-                  <li class="list-group-item">
-                    <a href="pages/server/dasar-linux/">Perintah Dasar Linux</a>
+                <ul class="list-group list-group-flush flex-grow-1">
+                  <li class="list-group-item position-relative">
+                    <a
+                      href="pages/server/dasar-linux/"
+                      class="text-decoration-none"
+                      >Perintah Dasar Linux</a
+                    >
                   </li>
+                  <li class="list-group-item invisible">Placeholder</li>
+                  <li class="list-group-item invisible">Placeholder</li>
                 </ul>
               </div>
             </div>
           </div>
 
           <div class="col">
-            <div class="card card-module h-100 shadow-sm">
-              <div class="card-body">
-                <h5 class="card-title text-success">
-                  🔒 Keamanan Jaringan (Security)
+            <div class="card card-module h-100 shadow-lg border-0">
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title text-primary fs-4">
+                  🔒 Keamanan Jaringan
                 </h5>
-                <p class="card-text text-muted">
+                <p class="card-text text-muted mb-4">
                   Konsep pertahanan, enkripsi, firewalling, dan praktik
                   pengerasan sistem.
                 </p>
-                <ul class="list-group list-group-flush mt-3">
-                  <li class="list-group-item">
-                    <a href="#">Firewall Pada Linux Server (on progress)</a>
+                <ul class="list-group list-group-flush flex-grow-1">
+                  <li class="list-group-item position-relative">
+                    <a href="#" class="text-decoration-none text-danger"
+                      >Firewall Pada Linux Server (on progress)</a
+                    >
                   </li>
+                  <li class="list-group-item invisible">Placeholder</li>
+                  <li class="list-group-item invisible">Placeholder</li>
                 </ul>
+                <div class="mt-3">
+                  <a href="#" class="btn btn-outline-secondary w-100 disabled"
+                    >Segera Hadir</a
+                  >
+                </div>
               </div>
             </div>
           </div>
@@ -150,38 +208,40 @@
           <a
             href="https://github.com/jokoadhi/jokoadhi.github.io/issues"
             target="_blank"
-            class="btn btn-warning btn-lg shadow"
+            class="btn btn-warning btn-lg shadow-sm"
           >
-            Punya Pertanyaan atau Saran Topik? Buka Issue di GitHub!
+            Punya Saran Topik? Buka Issue di GitHub!
           </a>
         </div>
       </section>
 
-      <hr />
+      <hr class="my-5" />
 
-      <section id="about" class="mt-5 mb-5">
-        <h2 class="text-center mb-3">Filosofi Dokumentasi</h2>
+      <section id="about" class="mb-5 py-4">
+        <h2 class="text-center mb-4">Filosofi Dokumentasi</h2>
         <div class="row justify-content-center">
           <div class="col-lg-8">
-            <p class="text-center">
-              Proyek ini lahir dari keyakinan bahwa
-              <b>cara terbaik untuk belajar adalah dengan mengajar</b>. Dengan
-              mendokumentasikan setiap langkah dan tantangan, saya berharap ini
-              menjadi sumber daya yang berharga bagi Kalian yang sedang menapaki
-              bidang Ilmu Komputer dan Jaringan.
-            </p>
-            <p class="text-center text-muted">
-              Kode sumber, materi, dan struktur situs ini sepenuhnya
-              <b> Open Source </b> dan dapat dilihat di repositori GitHub.
-            </p>
+            <div class="p-4 bg-light rounded shadow-sm">
+              <p class="text-center fs-5">
+                Proyek ini lahir dari keyakinan bahwa
+                <b>cara terbaik untuk belajar adalah dengan mengajar</b>. Dengan
+                mendokumentasikan setiap langkah, saya berharap ini menjadi
+                sumber daya berharga bagi yang sedang menapaki bidang Ilmu
+                Jaringan.
+              </p>
+              <p class="text-center text-muted small mt-4">
+                Kode sumber, materi, dan struktur situs ini sepenuhnya
+                <b> Open Source </b> dan dapat dilihat di repositori GitHub.
+              </p>
+            </div>
           </div>
         </div>
       </section>
     </div>
 
-    <footer class="bg-dark text-white text-center py-3">
-      <div class="container">
-        <p class="mb-0">&copy; 2025 Joko Adhi. Moodle OpenSource.</p>
+    <footer class="bg-dark text-white py-4">
+      <div class="container text-center">
+        <p class="mb-0 fs-6">&copy; 2025 Joko Adhi | Moodle OpenSource.</p>
       </div>
     </footer>
 

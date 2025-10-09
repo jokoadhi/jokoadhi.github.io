@@ -34,3 +34,20 @@ body {
 .list-group-item:hover {
   background-color: #e9ecef;
 }
+/* CSS untuk membuat seluruh area list item menjadi link */
+.list-group-item a {
+  /* Wajib: membuat tautan mengisi seluruh ruang */
+  display: block;
+  padding: var(--bs-list-group-item-padding-y)
+    var(--bs-list-group-item-padding-x);
+  margin: calc(-1 * var(--bs-list-group-item-padding-y))
+    calc(-1 * var(--bs-list-group-item-padding-x));
+
+  /* Mengatasi tumpukan dan visual */
+  position: relative;
+  z-index: 1;
+
+  /* Hapus dekorasi bawaan */
+  text-decoration: none;
+  color: #0d6efd;
+}
