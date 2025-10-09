@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Huawei HG8145v5</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Mono&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="../../../style/style2.css" />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand ms-3" href="/../../index.html"
+          >📚 Joko Adhi Docs</a
+        >
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto me-3">
+            <li class="nav-item">
+              <a class="nav-link" href="/../../index.html#modules"
+                >Modul Utama</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/../../index.html#about">Tentang</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container-fluid">
+      <div class="row">
+        <nav
+          id="sidebarMenu"
+          class="col-md-3 col-lg-2 d-md-block sidebar collapse"
+        >
+          <div class="position-sticky pt-3">
+            <h6
+              class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted text-uppercase"
+            >
+              Jaringan dasar
+            </h6>
+            <ul class="nav flex-column mb-2">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">
+                  Setting WAN pada ONT HG8145v5
+                </a>
+              </li>
+            </ul>
+          </div>
+          <section id="download-config" class="mb-5">
+            <a
+              href="https://raw.githubusercontent.com/jokoadhi/config-huawei-HG8145V5/refs/heads/main/config-hg8145v5.xml"
+              class="btn btn-success mt-3"
+              download="config-hg8145v5.xml"
+              role="button"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="18"
+                height="18"
+                fill="currentColor"
+                class="bi bi-download me-2"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"
+                />
+                <path
+                  d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"
+                />
+              </svg>
+              Unduh file config (.xml)
+            </a>
+            <a
+              href="https://github.com/jokoadhi/config-huawei-HG8145V5/blob/main/KONFIGURASI%20PPPOE%20PADA%20ONT%20HUAWEI%20HG8145V5.pdf"
+              class="btn btn-success mt-3"
+              download
+              role="button"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="18"
+                height="18"
+                fill="currentColor"
+                class="bi bi-download me-2"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"
+                />
+                <path
+                  d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"
+                />
+              </svg>
+              Unduh PDF (.pdf)
+            </a>
+          </section>
+        </nav>
+
+        <main class="col-md-9 ms-sm-auto col-lg-10 main-content">
+          <h1 class="mb-4">SETTING WAN PADA ONT HUAWEI HG8145V5</h1>
+          <p class="text-muted">Diperbarui: 9 Oktober 2025</p>
+
+          <hr class="mb-5" />
+          <section id="introduction" class="mb-5">
+            <h2>
+              Kenapa ONT HG8145v5 harus ada settingan khusus untuk koneksi
+              internetnya?
+            </h2>
+            <p>
+              Karena di ONT Huawei HG8145v5 tidak ada menu WAN atau tidak muncul
+              menu WAN yang mana menu WAN tersebut untuk setting koneksi
+              internet dari ONT, maka dari itu untuk setting koneksinya dalam
+              hal ini yaitu PPPoE harus menggunakan file config yang sudah
+              dimodifikasi sesuai kebutuhan.
+            </p>
+          </section>
+
+          <section id="config">
+            <h2>langkah-langkah Penerapan konfigurasi</h2>
+            <p>
+              1. Buka file konfigurasi yang Bernama “HG8145V5 PPPOE
+              LAN1,LAN2,LAN3,LAN4,SSID1,SSID5 VLAN 100 Support,
+              theworldinyourhand”, buka pada text editor, dalam tutorial ini
+              menggunakan Visual Studio Code.
+            </p>
+
+            <p>
+              2. Jika sudah terbuka untuk File nya, lalu Search tekan CTRL + F
+              ketik NATEnabled, akan muncul baris seperti pada gambar dibawah,
+              Ganti username menjadi username PPPoE pelanggan lalu untuk sandi
+              akan kita hash terlebih dahulu, lanjut ke Langkah 3.
+            </p>
+            <figure class="figure mt-4 mb-4">
+              <img
+                src="/../../img/ont/1.png"
+                class="img-fluid rounded shadow"
+                alt="melihat pppoe"
+              />
+              <figcaption class="figure-caption text-center mt-2">
+                Gambar 1.0: melihat pppoe.
+              </figcaption>
+            </figure>
+            <p>
+              3. Buka link
+              <a
+                href="https://andreluis034.github.io/huawei-utility-page/#cipher"
+                >https://andreluis034.github.io/huawei-utility-page/#cipher</a
+              >
+              di google Chrome, tampilannya akan seperti gambar dibawah.
+              Masukkan password PPPoE pelanggan tadi ke kolom input lalu pilih
+              Chiper pada kolom Function. Jika sudah muncul hasilnya di kolom
+              Result, copy password yang sudah di hash. Lanjut Langkah ke 4.
+            </p>
+            <figure class="figure mt-4 mb-4">
+              <img
+                src="/../../img/ont/2.png"
+                class="img-fluid rounded shadow"
+                alt="chiper dechiper"
+              />
+              <figcaption class="figure-caption text-center mt-2">
+                Gambar 1.1: chiper dechiper.
+              </figcaption>
+            </figure>
+            <p>
+              4. Paste pada bagian password seperti gambar dibawah, jika
+              tampilan kode seperti dibawah atau sedang ada error. Maka ulangi
+              hashing tadi pada Langkah nomor 3.
+            </p>
+            <figure class="figure mt-4 mb-4">
+              <img
+                src="/../../img/ont/3.png"
+                class="img-fluid rounded shadow"
+                alt="error kode"
+              />
+              <figcaption class="figure-caption text-center mt-2">
+                Gambar 1.2: error kode.
+              </figcaption>
+            </figure>
+            <p>
+              Sampai warna kode seperti gambar dibawah ini, yang berati sudah
+              benar. Jika sudah benar maka save file dengan cara tekan CTRL + S.
+              lanjut Langkah 5.
+            </p>
+            <figure class="figure mt-4 mb-4">
+              <img
+                src="/../../img/ont/4.png"
+                class="img-fluid rounded shadow"
+                alt="mengganti pppoe"
+              />
+              <figcaption class="figure-caption text-center mt-2">
+                Gambar 1.3: mengganti pppoe.
+              </figcaption>
+            </figure>
+            <p>
+              5. Masuk ke halaman login ONT, ke logo analyst lalu klik WAN,
+              secara default untuk koneksi nya akan menampilkan konfigurasi
+              seperti gambar dibawah.
+            </p>
+            <figure class="figure mt-4 mb-4">
+              <img
+                src="/../../img/ont/5.png"
+                class="img-fluid rounded shadow"
+                alt="melihat koneksi sebelum dikonfig"
+              />
+              <figcaption class="figure-caption text-center mt-2">
+                Gambar 1.4: melihat koneksi sebelum dikonfig.
+              </figcaption>
+            </figure>
+            <p>
+              6. Klik logo gerigi, pilih Maintenance Diagnosis lalu pilih
+              Configuration File, upload File konfigurasi yang sudah kita edit
+              tadi di sini, jika sudah klik Update Configuration File. Tunggu
+              hingga proses booting selesai.
+            </p>
+            <figure class="figure mt-4 mb-4">
+              <img
+                src="/../../img/ont/6.png"
+                class="img-fluid rounded shadow"
+                alt="tempat upload file konfig"
+              />
+              <figcaption class="figure-caption text-center mt-2">
+                Gambar 1.5: tempat upload file konfig.
+              </figcaption>
+            </figure>
+            <p>
+              7. Setelah booting selesai, coba dilihat pada halaman Langkah ke 5
+              sebelumnya, tampilannya akan seperti dibawah, koneksi WAN sudah
+              berubah sesuai konfigurasi yang sudah diedit pada File tadi,
+              seharusnya sampai Langkah ini PPPoE sudah dial dan internet sudah
+              bisa digunakan.
+            </p>
+            <figure class="figure mt-4 mb-4">
+              <img
+                src="/../../img/ont/7.png"
+                class="img-fluid rounded shadow"
+                alt="koneksi sudah dikonfig"
+              />
+              <figcaption class="figure-caption text-center mt-2">
+                Gambar 1.6: koneksi sudah dikonfig.
+              </figcaption>
+            </figure>
+          </section>
+
+          <hr />
+
+          <div class="text-center mt-5 mb-5 p-3 bg-light rounded shadow-sm">
+            **Selesai.** Anda telah mencapai akhir dari topik ini. Silakan pilih
+            topik lain melalui Sidebar di sebelah kiri atau kembali ke
+            <a href="/../../index.html" class="text-decoration-none"
+              >Halaman Modul Utama</a
+            >.
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
