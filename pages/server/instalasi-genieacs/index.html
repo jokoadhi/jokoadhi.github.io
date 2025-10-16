@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Instalasi GenieACS</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Mono&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="../../../style/style2.css" />
+    <link rel="icon" type="image/png" href="/ico.png" />
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4435345623883384"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand ms-3" href="/../../index.html"
+          >📚 Joko Adhi Docs</a
+        >
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto me-3">
+            <li class="nav-item">
+              <a class="nav-link" href="/../../index.html#modules"
+                >Modul Utama</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/../../index.html#about">Tentang</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container-fluid">
+      <div class="row">
+        <nav
+          id="sidebarMenu"
+          class="col-md-3 col-lg-2 d-md-block sidebar collapse"
+        >
+          <div class="position-sticky pt-3">
+            <h6
+              class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted text-uppercase"
+            >
+              System Operasi dan server
+            </h6>
+            <ul class="nav flex-column mb-2">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">
+                  Instalasi GenieACS
+                </a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+
+        <main class="col-md-9 ms-sm-auto col-lg-10 main-content">
+          <h1 class="mb-4">INSTALASI GENIEACS DI UBUNTU 24.04</h1>
+          <p class="text-muted">Diperbarui: 17 Oktober 2025</p>
+
+          <hr class="mb-3" />
+            <a 
+        href="https://github.com/jokoadhi/virtual-parameter-genieacs/raw/refs/heads/main/virtualParameters.bson" 
+        class="btn btn-primary btn-lg mt-3" 
+        download="virtualParameters.bson"  role="button"
+    >
+          <path d="M4 14s1.5 0 2 0c.5 0 2 0 2 0s1.5 0 2 0c.5 0 2 0 2 0V2s-1.5 0-2 0c-.5 0-2 0-2 0s-1.5 0-2 0c-.5 0-2 0-2 0zM3.5 1h9c.35 0 .63.15.75.34l.7 1.4c.15.28.18.57.18.86v10c0 .32-.1.65-.29.89l-.54.76c-.27.38-.6.54-1.01.54H4.5c-.41 0-.74-.16-1.01-.54l-.54-.76c-.19-.24-.29-.57-.29-.89V3.5c0-.29.03-.58.18-.86l.7-1.4c.12-.19.4-.34.75-.34z"/>
+          <path d="M4 11s1.5 0 2 0c.5 0 2 0 2 0s1.5 0 2 0c.5 0 2 0 2 0V5s-1.5 0-2 0c-.5 0-2 0-2 0s-1.5 0-2 0c-.5 0-2 0-2 0z"/>
+        </svg>
+        Unduh VirtualParameter (.bson)
+    </a>
+
+    <a 
+        href="https://github.com/jokoadhi/virtual-parameter-genieacs/raw/refs/heads/main/config.bson" 
+        class="btn btn-primary btn-lg mt-3" 
+        download="config.bson"  role="button"
+    >
+          <path d="M4 14s1.5 0 2 0c.5 0 2 0 2 0s1.5 0 2 0c.5 0 2 0 2 0V2s-1.5 0-2 0c-.5 0-2 0-2 0s-1.5 0-2 0c-.5 0-2 0-2 0zM3.5 1h9c.35 0 .63.15.75.34l.7 1.4c.15.28.18.57.18.86v10c0 .32-.1.65-.29.89l-.54.76c-.27.38-.6.54-1.01.54H4.5c-.41 0-.74-.16-1.01-.54l-.54-.76c-.19-.24-.29-.57-.29-.89V3.5c0-.29.03-.58.18-.86l.7-1.4c.12-.19.4-.34.75-.34z"/>
+          <path d="M4 11s1.5 0 2 0c.5 0 2 0 2 0s1.5 0 2 0c.5 0 2 0 2 0V5s-1.5 0-2 0c-.5 0-2 0-2 0s-1.5 0-2 0c-.5 0-2 0-2 0z"/>
+        </svg>
+        Unduh Config (.bson)
+    </a>
+
+          <section id="introduction" class="mb-5 mt-4">
+            <h2>1. Apa Itu GenieACS?</h2>
+            <p>
+              GenieACS adalah sebuah Auto Configuration Server (ACS) yang
+              bersifat open-source, ringan, dan berkinerja tinggi. Fungsi
+              utamanya adalah untuk manajemen jarak jauh (remote management)
+              perangkat jaringan, khususnya perangkat yang diaktifkan dengan
+              protokol TR-069 (misalnya modem, router, ONT/ONU milik pelanggan
+              ISP).
+            </p>
+          </section>
+          <section id="main" class="mb-5">
+            <h2>2. Langkah-langkah Instalasi</h2>
+            <p>Lakukan update dan Upgrade dahulu</p>
+            <pre>
+                <code>
+sudo apt update && sudo apt upgrade -y
+                </code>
+            </pre>
+          </section>
+
+          <section id="main" class="mb-5">
+            <p>Install depedensinya curl, repo nodejs, dan nodejs nya</p>
+            <pre>
+                <code>
+sudo apt-get install curl -y
+curl -sL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
+sudo apt-get install nodejs -y
+                </code>
+            </pre>
+          </section>
+
+          <section id="main" class="mb-5">
+            <p>Install database MongoDB</p>
+            <pre>
+                <code>
+curl -fsSL https://www.mongodb.org/static/pgp/server-7.0.asc | \
+   sudo gpg -o /usr/share/keyrings/mongodb-server-7.0.gpg \
+   --dearmor
+echo "deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-7.0.gpg ] https://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/7.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-7.0.list
+sudo apt-get update
+sudo apt-get install -y mongodb-org
+                </code>
+            </pre>
+          </section>
+
+          <section id="main" class="mb-5">
+            <p>
+              Aktifkan dan jalankan layanan MongoDB (Pastikan statusnya "active
+              (running)")
+            </p>
+            <pre>
+                <code>
+sudo systemctl start mongod
+sudo systemctl enable mongod
+sudo systemctl status mongod
+                </code>
+            </pre>
+          </section>
+
+          <section id="main" class="mb-5">
+            <p>Install GenieACS menggunakan NPM</p>
+            <pre>
+                <code>
+sudo npm install -g genieacs
+                </code>
+            </pre>
+          </section>
+
+          <section id="main" class="mb-5">
+            <p>Buat user khusus untuk GenieACS</p>
+            <pre>
+                <code>
+sudo useradd --system --no-create-home --user-group genieacs
+                </code>
+            </pre>
+          </section>
+
+          <section id="main" class="mb-5">
+            <p>Buat direktori dan file konfigurasinya</p>
+            <pre>
+                <code>
+sudo mkdir -p /opt/genieacs/ext
+sudo chown genieacs:genieacs /opt/genieacs/ext
+sudo mkdir /var/log/genieacs
+sudo chown genieacs:genieacs /var/log/genieacs
+                </code>
+            </pre>
+          </section>
+
+          <section id="main" class="mb-5">
+            <p>Buat file .env untuk konfigurasi</p>
+            <pre>
+                <code>
+sudo nano /opt/genieacs/genieacs.env
+                </code>
+            </pre>
+          </section>
+
+          <section id="main" class="mb-5">
+            <p>Tambahkan baris tersebut ke file genieacs.env</p>
+            <pre>
+                <code>
+GENIEACS_CWMP_ACCESS_LOG_FILE=/var/log/genieacs/genieacs-cwmp-access.log
+GENIEACS_NBI_ACCESS_LOG_FILE=/var/log/genieacs/genieacs-nbi-access.log
+GENIEACS_FS_ACCESS_LOG_FILE=/var/log/genieacs/genieacs-fs-access.log
+GENIEACS_UI_ACCESS_LOG_FILE=/var/log/genieacs/genieacs-ui-access.log
+GENIEACS_CWMP_INTERFACE=0.0.0.0
+GENIEACS_NBI_INTERFACE=0.0.0.0
+GENIEACS_FS_INTERFACE=0.0.0.0
+GENIEACS_UI_INTERFACE=0.0.0.0
+                </code>
+            </pre>
+          </section>
+
+          <section id="main" class="mb-5">
+            <p>Buat JWT Secret</p>
+            <pre>
+                <code>
+node -e "console.log(\"GENIEACS_UI_JWT_SECRET=\" + require('crypto').randomBytes(128).toString('hex'))" | sudo tee -a /opt/genieacs/genieacs.env
+                </code>
+            </pre>
+          </section>
+
+          <section id="main" class="mb-5">
+            <p>Atur hak akses file nya</p>
+            <pre>
+                <code>
+sudo chown genieacs:genieacs /opt/genieacs/genieacs.env
+sudo chmod 600 /opt/genieacs/genieacs.env
+                </code>
+            </pre>
+          </section>
+
+          <section id="main" class="mb-5">
+            <p>Buat file service systemd untuk cwmp</p>
+            <pre>
+                <code>
+sudo nano /etc/systemd/system/genieacs-cwmp.service
+                </code>
+            </pre>
+          </section>
+
+          <section id="main" class="mb-5">
+            <p>tambahkan baris tersebut ke file genieacs-cwmp.service</p>
+            <pre>
+                <code>
+[Unit]
+Description=GenieACS CWMP
+After=network.target
+
+[Service]
+User=genieacs
+EnvironmentFile=/opt/genieacs/genieacs.env
+ExecStart=/usr/bin/genieacs-cwmp
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+                </code>
+            </pre>
+            <p>
+              Lakukan hal yang sama untuk layanan lainnya (genieacs-nbi.service,
+              genieacs-fs.service, dan genieacs-ui.service), hanya ubah baris
+              ExecStart sesuai dengan nama layanan.
+            </p>
+          </section>
+
+          <section id="main" class="mb-5">
+            <p>Reload konfigurasi systemd</p>
+            <pre>
+                <code>
+sudo systemctl daemon-reload
+                </code>
+            </pre>
+          </section>
+
+          <section id="main" class="mb-5">
+            <p>Aktifkan dan jalankan semua service yang sudah dibuat tadi</p>
+            <pre>
+                <code>
+sudo systemctl enable --now genieacs-cwmp genieacs-nbi genieacs-fs genieacs-ui
+                </code>
+            </pre>
+          </section>
+
+          <section id="main" class="mb-5">
+            <p>
+              Periksa dan pastikan status semua service berstatus "active
+              (running)"
+            </p>
+            <pre>
+                <code>
+sudo systemctl status genieacs-cwmp genieacs-nbi genieacs-fs genieacs-ui
+                </code>
+            </pre>
+            <p>
+              GenieACS UI akan berjalan di port 3000 secara default. Buka
+              browser akses http://(IP_SERVER):3000. Ikuti panduan wizard untuk
+              inisialisasi database.
+            </p>
+          </section>
+
+          <p>
+            Konfigurasi tambahan untuk menambahkan custom Virtual Parameter,
+            karena bawaan GenieACS belum bisa secara otomatis menampilkan
+            settingan dasar ONU.
+          </p>
+
+          <section id="main" class="mb-5">
+            <p>Load konfigurasi File untuk virtualParameter dan Config</p>
+            <pre>
+                <code>
+mongorestore --db genieacs --drop --collection virtualParameters /Document/VM/GenieACS/virtualParameters.bson
+mongorestore --db genieacs --drop --collection config /Document/VM/GenieACS/config.bson
+                </code>
+            </pre>
+          </section>
+
+          <p>
+            Seharusnya sampai langkah ini, GenieACS sudah bisa menampilkan
+            settingan dasar dari ONU, contohnya WAN, LAN, SSID, dll.
+          </p>
+
+          <figure class="figure mt-0 mb-4">
+            <img
+              src="1.png"
+              class="img-fluid rounded shadow"
+              alt="Tampilan genieacs full virtualParameter"
+            />
+            <figcaption class="figure-caption text-center mt-2">
+              Gambar 1.0: Tampilan genieacs full virtualParameter.
+            </figcaption>
+          </figure>
+
+          <p>
+            Sumber virtualParameter :
+            <a href="https://github.com/alijayanet/genieacs"
+              >Github AlijayaNet</a
+            >
+          </p>
+
+          <!-- <div class="alert alert-custom" role="alert">
+              **💡 Penting:** [Sistem Operasi] adalah otak dari komputer dan
+              server.
+            </div> -->
+
+          <!-- <pre><code>
+# Perintah untuk melihat konfigurasi jaringan di Linux
+ip a
+  
+# Perintah untuk menguji koneksi
+ping 8.8.8.8
+                    </code></pre> -->
+
+          <hr />
+
+          <div class="text-center mt-5 mb-5 p-3 bg-light rounded shadow-sm">
+            **Selesai.** Anda telah mencapai akhir dari topik ini. Silakan pilih
+            topik lain melalui Sidebar di sebelah kiri atau kembali ke
+            <a href="/../../index.html" class="text-decoration-none"
+              >Halaman Modul Utama</a
+            >.
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
