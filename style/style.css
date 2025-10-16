@@ -51,3 +51,37 @@ body {
   text-decoration: none;
   color: #0d6efd;
 }
+.hero-section {
+  /* Tinggi default (bisa diatur oleh padding Bootstrap py-5) */
+  /* Pastikan tidak ada min-height atau height yang memaksakan ukuran penuh di sini */
+  display: flex;
+  align-items: center;
+}
+
+/* Kunci: MEDIA QUERY untuk MENARGETKAN HANYA LAYAR MOBILE/TABLET KECIL */
+/* Max-width: 991.98px menargetkan ukuran layar di bawah 'large' (lg) Bootstrap */
+@media (max-width: 991.98px) {
+  .hero-section .container {
+    /* Menerapkan Full-Height hanya di HP/Tablet Kecil */
+    /* 100vh - (Tinggi Navbar Bootstrap: sekitar 56px) */
+    min-height: calc(100vh - 56px);
+
+    /* Pastikan konten di tengah vertikal di HP */
+    display: flex;
+    align-items: center;
+  }
+}
+.scroll-down-indicator {
+  /* Penempatan di paling bawah hero section */
+  position: absolute;
+  bottom: 20px; /* Jarak dari bawah layar */
+  left: 50%;
+  transform: translateX(-50%); /* Menengahkan elemen */
+  z-index: 10;
+}
+
+/* Styling SVG Panah */
+#scrollArrow {
+  fill: #ffffff; /* Warna panah (putih) */
+  /* Hapus semua properti animation: jika ada */
+}
