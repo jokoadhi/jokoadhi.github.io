@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://jokoadhi.github.io/site-map.xml
