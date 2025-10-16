@@ -96,17 +96,14 @@
           </section>
           <section id="main" class="mb-5">
             <h2>2. Beberapa Perintah Dasar Linux</h2>
-            <pre>
-                <code>
-joko@ubuntu-desk:~$ ls
+            <pre><code>joko@ubuntu-desk:~$ ls
  BurpSuiteCommunity   'My project'         Public      Videos
  Desktop               node_modules        remolt-v2  'VirtualBox VMs'
  Documents             package.json        snap        yes
  Downloads             package-lock.json   Templates   yes.pub
  javasharedresources   Pictures            Unity
  Music                 pt                  venv
-                </code>
-            </pre>
+</code></pre>
             <p>
               ls - Menampilkan daftar isi (file dan folder) dari direktori saat
               ini.
@@ -114,22 +111,16 @@ joko@ubuntu-desk:~$ ls
           </section>
 
           <section id="main" class="mb-5">
-            <pre>
-                <code>
-joko@ubuntu-desk:~$ cd Downloads/
+            <pre><code>joko@ubuntu-desk:~$ cd Downloads/
 joko@ubuntu-desk:~/Downloads$ 
-                </code>
-            </pre>
+</code></pre>
             <p>cd - Berpindah (Change Directory) ke direktori lain.</p>
           </section>
 
           <section id="main" class="mb-5">
-            <pre>
-                <code>
-joko@ubuntu-desk:~/Downloads$ pwd
+            <pre><code>joko@ubuntu-desk:~/Downloads$ pwd
 /home/joko/Downloads 
-                </code>
-            </pre>
+</code></pre>
             <p>
               pwd - Menampilkan lokasi direktori kerja saat ini (Print Working
               Directory).
@@ -137,91 +128,70 @@ joko@ubuntu-desk:~/Downloads$ pwd
           </section>
 
           <section id="main" class="mb-5">
-            <pre>
-                <code>
-joko@ubuntu-desk:~/Music$ ls
+            <pre><code>joko@ubuntu-desk:~/Music$ ls
 foto.php.png
 joko@ubuntu-desk:~/Music$ mkdir testing
 joko@ubuntu-desk:~/Music$ ls
 foto.php.png  testing
-                </code>
-            </pre>
+</code></pre>
             <p>mkdir - Membuat (Make Directory) direktori (folder)</p>
           </section>
 
           <section id="main" class="mb-5">
-            <pre>
-                <code>
-joko@ubuntu-desk:~/Music$ ls
+            <pre><code>joko@ubuntu-desk:~/Music$ ls
 foto.php.png  testing
 joko@ubuntu-desk:~/Music$ rmdir testing/
 joko@ubuntu-desk:~/Music$ ls
 foto.php.png
-                </code>
-            </pre>
+</code></pre>
             <p>rmdir - Menghapus (Remove Directory) direktori kosong.</p>
           </section>
 
           <section id="main" class="mb-5">
-            <pre>
-                <code>
-joko@ubuntu-desk:~/Music$ ls
+            <pre><code>joko@ubuntu-desk:~/Music$ ls
 foto.php.png
 joko@ubuntu-desk:~/Music$ touch index.html
 joko@ubuntu-desk:~/Music$ ls
 foto.php.png  index.html
-                </code>
-            </pre>
+</code></pre>
             <p>touch - Membuat file kosong baru dengan ekstensi tertentu.</p>
           </section>
 
           <section id="main" class="mb-5">
-            <pre>
-                <code>
-joko@ubuntu-desk:~/Music$ ls
+            <pre><code>joko@ubuntu-desk:~/Music$ ls
 foto.php.png  index.html
 joko@ubuntu-desk:~/Music$ cp index.html index2.html
 joko@ubuntu-desk:~/Music$ ls
 foto.php.png  index2.html  index.html
-                </code>
-            </pre>
+</code></pre>
             <p>cp - Menyalin (Copy) file atau direktori.</p>
           </section>
 
           <section id="main" class="mb-5">
-            <pre>
-                <code>
-joko@ubuntu-desk:~/Music$ ls
+            <pre><code>joko@ubuntu-desk:~/Music$ ls
 foto.php.png  index.html
 joko@ubuntu-desk:~/Music$ mv index.html index2.html
 joko@ubuntu-desk:~/Music$ ls
 foto.php.png  index2.html
-                </code>
-            </pre>
+</code></pre>
             <p>
               mv - Memindahkan (Move) atau mengganti nama file atau direktori.
             </p>
           </section>
 
           <section id="main" class="mb-5">
-            <pre>
-                <code>
-joko@ubuntu-desk:~/Music$ ls
+            <pre><code>joko@ubuntu-desk:~/Music$ ls
 foto.php.png  index2.html
 joko@ubuntu-desk:~/Music$ rm index2.html 
 joko@ubuntu-desk:~/Music$ ls
 foto.php.png
-                </code>
-            </pre>
-            <pre>
-                <code>
-joko@ubuntu-desk:~/Music$ ls
+</code></pre>
+            <pre><code>joko@ubuntu-desk:~/Music$ ls
 foto.php.png  testing
 joko@ubuntu-desk:~/Music$ rm -r testing/
 joko@ubuntu-desk:~/Music$ ls
 foto.php.png
-                </code>
-            </pre>
+</code></pre>
             <p>
               rm - Menghapus (Remove) file atau bisa juga untuk menghapus folder
               (dengan opsi -r).
@@ -229,59 +199,44 @@ foto.php.png
           </section>
 
           <section id="main" class="mb-5">
-            <pre>
-                <code>
-joko@ubuntu-desk:~/Documents$ cat test.txt 
+            <pre><code>joko@ubuntu-desk:~/Documents$ cat test.txt 
 halo ini adalah isi dari file test.txt
 
 joko@ubuntu-desk:~/Documents$ 
-                </code>
-            </pre>
+</code></pre>
             <p>cat - Menampilkan seluruh isi file ke layar (Concatenate).</p>
           </section>
 
           <section id="main" class="mb-5">
-            <pre>
-                <code>
-Singkatan	Simbol	        Nilai Numerik	Deskripsi
+            <pre><code>Singkatan	Simbol	        Nilai Numerik	Deskripsi
 r	        Read (Baca)	        4	Membolehkan untuk melihat isi berkas atau daftar isi direktori.
 w	        Write (Tulis)	        2	Membolehkan untuk mengubah atau menghapus berkas, atau menambah/menghapus file dalam direktori.
 x	        Execute (Jalankan)	1	Membolehkan untuk menjalankan berkas (script) atau mengakses direktori.
-                </code>
-            </pre>
-            <pre>
-                <code>
-Angka	Pemilik	    Grup        Lainnya	    Izin
+</code></pre>
+            <pre><code>Angka	Pemilik	    Grup        Lainnya	    Izin
 7	 4+2+1	    4+2+1	4+2+1	    Semua hak akses (rwx)
 6	 4+2+0	    4+2+0	4+2+0	    Baca dan Tulis (rw-)
 5	 4+0+1	    4+0+1	4+0+1	    Baca dan Jalankan (r-x)
 4	 4+0+0	    4+0+0	4+0+0	    Hanya Baca (r--)
-                </code>
-            </pre>
-            <pre>
-                <code>
-# Contohnya seperti ini
+</code></pre>
+            <pre><code># Contohnya seperti ini
 joko@ubuntu-desk:~/Documents$ chmod 777 test.txt
 
 # Artinya file test.txt diubah akses nya menjadi pemilik, group dan user lainnya
 memiliki akses full yaitu membaca, menulis dan mengeksekusi.
-                </code>
-            </pre>
+</code></pre>
             <p>chmod - Mengubah izin akses (mode) pada file atau direktori.</p>
           </section>
 
           <section id="main" class="mb-5">
-            <pre>
-                <code>
-joko@ubuntu-desk:~$ lsb_release -a
+            <pre><code>joko@ubuntu-desk:~$ lsb_release -a
 No LSB modules are available.
 Distributor ID:	Ubuntu
 Description:	Ubuntu 24.04.3 LTS
 Release:	24.04
 Codename:	noble
 joko@ubuntu-desk:~$
-                </code>
-            </pre>
+</code></pre>
             <p>
               lsb_release - melihat informasi system (dengan menggunakan
               parameter -a)

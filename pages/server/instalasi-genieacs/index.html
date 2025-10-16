@@ -120,36 +120,24 @@
           <section id="main" class="mb-5">
             <h2>2. Langkah-langkah Instalasi</h2>
             <p>Lakukan update dan Upgrade dahulu</p>
-            <pre>
-                <code>
-sudo apt update && sudo apt upgrade -y
-                </code>
-            </pre>
+            <pre><code>sudo apt update && sudo apt upgrade -y</code></pre>
           </section>
 
           <section id="main" class="mb-5">
             <p>Install depedensinya curl, repo nodejs, dan nodejs nya</p>
-            <pre>
-                <code>
-sudo apt-get install curl -y
+            <pre><code>sudo apt-get install curl -y
 curl -sL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
-sudo apt-get install nodejs -y
-                </code>
-            </pre>
+sudo apt-get install nodejs -y</code></pre>
           </section>
 
           <section id="main" class="mb-5">
             <p>Install database MongoDB</p>
-            <pre>
-                <code>
-curl -fsSL https://www.mongodb.org/static/pgp/server-7.0.asc | \
+            <pre><code>curl -fsSL https://www.mongodb.org/static/pgp/server-7.0.asc | \
    sudo gpg -o /usr/share/keyrings/mongodb-server-7.0.gpg \
    --dearmor
 echo "deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-7.0.gpg ] https://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/7.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-7.0.list
 sudo apt-get update
-sudo apt-get install -y mongodb-org
-                </code>
-            </pre>
+sudo apt-get install -y mongodb-org</code></pre>
           </section>
 
           <section id="main" class="mb-5">
@@ -157,103 +145,65 @@ sudo apt-get install -y mongodb-org
               Aktifkan dan jalankan layanan MongoDB (Pastikan statusnya "active
               (running)")
             </p>
-            <pre>
-                <code>
-sudo systemctl start mongod
+            <pre><code>sudo systemctl start mongod
 sudo systemctl enable mongod
-sudo systemctl status mongod
-                </code>
-            </pre>
+sudo systemctl status mongod</code></pre>
           </section>
 
           <section id="main" class="mb-5">
             <p>Install GenieACS menggunakan NPM</p>
-            <pre>
-                <code>
-sudo npm install -g genieacs
-                </code>
-            </pre>
+            <pre><code>sudo npm install -g genieacs</code></pre>
           </section>
 
           <section id="main" class="mb-5">
             <p>Buat user khusus untuk GenieACS</p>
-            <pre>
-                <code>
-sudo useradd --system --no-create-home --user-group genieacs
-                </code>
-            </pre>
+            <pre><code>sudo useradd --system --no-create-home --user-group genieacs</code></pre>
           </section>
 
           <section id="main" class="mb-5">
             <p>Buat direktori dan file konfigurasinya</p>
-            <pre>
-                <code>
-sudo mkdir -p /opt/genieacs/ext
+            <pre><code>sudo mkdir -p /opt/genieacs/ext
 sudo chown genieacs:genieacs /opt/genieacs/ext
 sudo mkdir /var/log/genieacs
-sudo chown genieacs:genieacs /var/log/genieacs
-                </code>
-            </pre>
+sudo chown genieacs:genieacs /var/log/genieacs</code></pre>
           </section>
 
           <section id="main" class="mb-5">
             <p>Buat file .env untuk konfigurasi</p>
-            <pre>
-                <code>
-sudo nano /opt/genieacs/genieacs.env
-                </code>
-            </pre>
+            <pre><code>sudo nano /opt/genieacs/genieacs.env</code></pre>
           </section>
 
           <section id="main" class="mb-5">
             <p>Tambahkan baris tersebut ke file genieacs.env</p>
-            <pre>
-                <code>
-GENIEACS_CWMP_ACCESS_LOG_FILE=/var/log/genieacs/genieacs-cwmp-access.log
+            <pre><code>GENIEACS_CWMP_ACCESS_LOG_FILE=/var/log/genieacs/genieacs-cwmp-access.log
 GENIEACS_NBI_ACCESS_LOG_FILE=/var/log/genieacs/genieacs-nbi-access.log
 GENIEACS_FS_ACCESS_LOG_FILE=/var/log/genieacs/genieacs-fs-access.log
 GENIEACS_UI_ACCESS_LOG_FILE=/var/log/genieacs/genieacs-ui-access.log
 GENIEACS_CWMP_INTERFACE=0.0.0.0
 GENIEACS_NBI_INTERFACE=0.0.0.0
 GENIEACS_FS_INTERFACE=0.0.0.0
-GENIEACS_UI_INTERFACE=0.0.0.0
-                </code>
-            </pre>
+GENIEACS_UI_INTERFACE=0.0.0.0</code></pre>
           </section>
 
           <section id="main" class="mb-5">
             <p>Buat JWT Secret</p>
-            <pre>
-                <code>
-node -e "console.log(\"GENIEACS_UI_JWT_SECRET=\" + require('crypto').randomBytes(128).toString('hex'))" | sudo tee -a /opt/genieacs/genieacs.env
-                </code>
-            </pre>
+            <pre><code>node -e "console.log(\"GENIEACS_UI_JWT_SECRET=\" + require('crypto').randomBytes(128).toString('hex'))" | sudo tee -a /opt/genieacs/genieacs.env</code></pre>
           </section>
 
           <section id="main" class="mb-5">
             <p>Atur hak akses file nya</p>
-            <pre>
-                <code>
-sudo chown genieacs:genieacs /opt/genieacs/genieacs.env
-sudo chmod 600 /opt/genieacs/genieacs.env
-                </code>
-            </pre>
+            <pre><code>sudo chown genieacs:genieacs /opt/genieacs/genieacs.env
+sudo chmod 600 /opt/genieacs/genieacs.env</code></pre>
           </section>
 
           <section id="main" class="mb-5">
             <p>Buat file service systemd untuk cwmp</p>
-            <pre>
-                <code>
-sudo nano /etc/systemd/system/genieacs-cwmp.service
-                </code>
-            </pre>
+            <pre><code>sudo nano /etc/systemd/system/genieacs-cwmp.service</code></pre>
           </section>
 
           <section id="main" class="mb-5">
             <p>tambahkan baris tersebut ke file genieacs-cwmp.service</p>
-            <pre>
-                <code>
-[Unit]
+            <pre><code>[Unit]
 Description=GenieACS CWMP
 After=network.target
 
@@ -264,9 +214,7 @@ ExecStart=/usr/bin/genieacs-cwmp
 Restart=always
 
 [Install]
-WantedBy=multi-user.target
-                </code>
-            </pre>
+WantedBy=multi-user.target</code></pre>
             <p>
               Lakukan hal yang sama untuk layanan lainnya (genieacs-nbi.service,
               genieacs-fs.service, dan genieacs-ui.service), hanya ubah baris
@@ -276,20 +224,12 @@ WantedBy=multi-user.target
 
           <section id="main" class="mb-5">
             <p>Reload konfigurasi systemd</p>
-            <pre>
-                <code>
-sudo systemctl daemon-reload
-                </code>
-            </pre>
+            <pre><code>sudo systemctl daemon-reload</code></pre>
           </section>
 
           <section id="main" class="mb-5">
             <p>Aktifkan dan jalankan semua service yang sudah dibuat tadi</p>
-            <pre>
-                <code>
-sudo systemctl enable --now genieacs-cwmp genieacs-nbi genieacs-fs genieacs-ui
-                </code>
-            </pre>
+            <pre><code>sudo systemctl enable --now genieacs-cwmp genieacs-nbi genieacs-fs genieacs-ui</code></pre>
           </section>
 
           <section id="main" class="mb-5">
@@ -297,11 +237,7 @@ sudo systemctl enable --now genieacs-cwmp genieacs-nbi genieacs-fs genieacs-ui
               Periksa dan pastikan status semua service berstatus "active
               (running)"
             </p>
-            <pre>
-                <code>
-sudo systemctl status genieacs-cwmp genieacs-nbi genieacs-fs genieacs-ui
-                </code>
-            </pre>
+            <pre><code>sudo systemctl status genieacs-cwmp genieacs-nbi genieacs-fs genieacs-ui</code></pre>
             <p>
               GenieACS UI akan berjalan di port 3000 secara default. Buka
               browser akses http://(IP_SERVER):3000. Ikuti panduan wizard untuk
@@ -317,12 +253,8 @@ sudo systemctl status genieacs-cwmp genieacs-nbi genieacs-fs genieacs-ui
 
           <section id="main" class="mb-5">
             <p>Load konfigurasi File untuk virtualParameter dan Config</p>
-            <pre>
-                <code>
-mongorestore --db genieacs --drop --collection virtualParameters /Document/VM/GenieACS/virtualParameters.bson
-mongorestore --db genieacs --drop --collection config /Document/VM/GenieACS/config.bson
-                </code>
-            </pre>
+            <pre><code>mongorestore --db genieacs --drop --collection virtualParameters /Document/VM/GenieACS/virtualParameters.bson
+mongorestore --db genieacs --drop --collection config /Document/VM/GenieACS/config.bson</code></pre>
           </section>
 
           <p>
