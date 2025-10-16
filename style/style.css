@@ -61,7 +61,7 @@ body {
 /* Kunci: MEDIA QUERY untuk MENARGETKAN HANYA LAYAR MOBILE/TABLET KECIL */
 /* Max-width: 991.98px menargetkan ukuran layar di bawah 'large' (lg) Bootstrap */
 @media (max-width: 991.98px) {
-  .hero-section .container {
+  .hero-section {
     /* Menerapkan Full-Height hanya di HP/Tablet Kecil */
     /* 100vh - (Tinggi Navbar Bootstrap: sekitar 56px) */
     min-height: calc(100vh - 56px);
