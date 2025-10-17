@@ -64,18 +64,47 @@
           class="col-md-3 col-lg-2 d-md-block sidebar collapse"
         >
           <div class="position-sticky pt-3">
+            <h5
+              class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted text-uppercase"
+            >
+              Jaringan
+            </h5>
+
+            <hr class="my-3" />
             <h6
               class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted text-uppercase"
             >
-              Jaringan dasar
+              Daftar isi
             </h6>
+
             <ul class="nav flex-column mb-2">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">
-                  Registrasi ONT di OLT C320
+                <a class="nav-link font-weight-bold" href="#">
+                  1. Registrasi dan konfigurasi onu
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link font-weight-bold" href="#2">
+                  2. Perintah dasar diagnostik onu
                 </a>
               </li>
             </ul>
+
+            <hr class="my-3" />
+
+            <div class="p-3 text-center">
+              <div
+                style="
+                  background-color: #f8f9fa;
+                  height: 250px;
+                  border: 1px dashed #ccc;
+                  padding: 10px;
+                "
+              >
+                <small class="d-block mt-2 text-muted">Sponsor Ads</small>
+              </div>
+            </div>
           </div>
         </nav>
 
@@ -190,7 +219,7 @@ wan-ip 1 mode pppoe username testing password 12345678 vlan-profile pppoe100</co
             <br /><br />
             <hr />
 
-            <h2>PERINTAH DASAR DIAGNOSTIK OLT C320</h2>
+            <h2 id="2">PERINTAH DASAR DIAGNOSTIK OLT C320</h2>
             <br />
             <h3>1. Melihat Redaman (Attenuation) ONT</h3>
             <p>

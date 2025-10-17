@@ -64,18 +64,59 @@
           class="col-md-3 col-lg-2 d-md-block sidebar collapse"
         >
           <div class="position-sticky pt-3">
+            <h5
+              class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted text-uppercase"
+            >
+              Jaringan
+            </h5>
+
+            <hr class="my-3" />
             <h6
               class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted text-uppercase"
             >
-              Jaringan dasar
+              Daftar isi
             </h6>
+
             <ul class="nav flex-column mb-2">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">
-                  Konfigurasi Pisah Traffic Ping Lokal
+                <a class="nav-link font-weight-bold" href="#koneksi">
+                  1. Setting mark-connection
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link font-weight-bold" href="#paket">
+                  2. Setting mark-packet
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link font-weight-bold" href="#queues">
+                  3. Setting queues
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link font-weight-bold" href="#perban">
+                  4. Perbandingan traffic
                 </a>
               </li>
             </ul>
+
+            <hr class="my-3" />
+
+            <div class="p-3 text-center">
+              <div
+                style="
+                  background-color: #f8f9fa;
+                  height: 250px;
+                  border: 1px dashed #ccc;
+                  padding: 10px;
+                "
+              >
+                <small class="d-block mt-2 text-muted">Sponsor Ads</small>
+              </div>
+            </div>
           </div>
         </nav>
 
@@ -110,7 +151,7 @@
 
           <section id="praktik" class="mb-5">
             <h2>2. Langkah-langkah Penerapan</h2>
-            <p>
+            <p id="koneksi">
               Buka aplikasi winbox lalu remote mikrotik yang akan kita terapkan
               rule untuk pisah traffic PING, setting konfigurasi dasar dahulu,
               jika sudah masuk ke menu IP -> Firewall.
@@ -157,7 +198,7 @@
               </figcaption>
             </figure>
 
-            <p>
+            <p id="paket">
               Tambahkan rule baru lagi untuk menandai Packet ICMP nya, Chain
               pilih output, Connection Mark pilih koneksi yang sudah kita tandai
               pada langkah sebelumnya.
@@ -189,7 +230,7 @@
               </figcaption>
             </figure>
 
-            <p>
+            <p id="queues">
               jika kedua rule sudah dibuat, sekarang pindah ke menu winbox yaitu
               Queues.
             </p>
@@ -264,7 +305,7 @@
             </p>
             <br />
 
-            <h2>3. Perbandingan</h2>
+            <h2 id="perban">3. Perbandingan</h2>
 
             <p>
               Gambar dibawah adalah koneksi ping sebelum diterapkannya pisah

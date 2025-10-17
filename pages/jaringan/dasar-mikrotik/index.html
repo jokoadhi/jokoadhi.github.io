@@ -52,29 +52,74 @@
 
     <div class="container-fluid">
       <div class="row">
+
+
+<!-- Buka Sidebar menu -->
         <nav
           id="sidebarMenu"
           class="col-md-3 col-lg-2 d-md-block sidebar collapse"
         >
           <div class="position-sticky pt-3">
-            <h6
-              class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted text-uppercase"
-            >
-              Jaringan dasar
-            </h6>
-            <ul class="nav flex-column mb-2">
-              <li class="nav-item">
-                <a
-                  class="nav-link active"
-                  aria-current="page"
-                  href="#"
-                >
-                  Konfigurasi Dasar Mikrotik
-                </a>
-              </li>
-            </ul>
-          </div>
-        </nav>
+    
+    <h5 
+        class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted text-uppercase"
+    >
+        Jaringan
+    </h5>
+
+    <hr class="my-3">
+    <h6 
+        class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted text-uppercase"
+    >
+        Daftar isi
+    </h6>
+    
+    <ul class="nav flex-column mb-2">
+        
+        <li class="nav-item">
+            <a class="nav-link font-weight-bold" href="#akses">
+                1. Akses mikrotik
+            </a>
+        </li>
+        
+        <li class="nav-item">
+            <a class="nav-link font-weight-bold" href="#wan">
+                2. Setting IP WAN
+            </a>
+        </li>
+        
+        <li class="nav-item">
+            <a class="nav-link font-weight-bold" href="#dns">
+                3. Setting DNS
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link font-weight-bold" href="#gw">
+                4. Setting gateway
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link font-weight-bold" href="#nat">
+                5. Setting firewall nat
+            </a>
+        </li>
+        
+    </ul>
+    
+    <hr class="my-3">
+    
+    <div class="p-3 text-center">
+        <div style="background-color: #f8f9fa; height: 250px; border: 1px dashed #ccc; padding: 10px;">
+            <small class="d-block mt-2 text-muted">Sponsor Ads</small>
+        </div>
+    </div>
+
+</div>
+</nav>
+
+<!-- Tutup sidebar menu -->
 
         <main class="col-md-9 ms-sm-auto col-lg-10 main-content">
           <h1 class="mb-4">KONFIGURASI DASAR MIKROTIK</h1>
@@ -112,6 +157,7 @@
                             src="/../../img/mikrotik/1.jpeg" 
                             class="img-fluid rounded shadow" 
                             alt="Tampilan awal winbox"
+                            id="akses"
                         >
                         <figcaption class="figure-caption text-center mt-2">
                             Gambar 1.1: Tampilan awal winbox.
@@ -138,6 +184,7 @@
                             src="/../../img/mikrotik/3.jpeg" 
                             class="img-fluid rounded shadow" 
                             alt="Setting Ether1"
+                            id="wan"
                         >
                         <figcaption class="figure-caption text-center mt-2">
                             Gambar 1.3: Setting ether1.
@@ -151,6 +198,7 @@
                             src="/../../img/mikrotik/4.jpeg" 
                             class="img-fluid rounded shadow" 
                             alt="Setting DNS"
+                            id="dns"
                         >
                         <figcaption class="figure-caption text-center mt-2">
                             Gambar 1.4: Setting DNS.
@@ -181,6 +229,7 @@
                             src="/../../img/mikrotik/6.jpeg" 
                             class="img-fluid rounded shadow" 
                             alt="Setting IP Gateway"
+                            id="gw"
                         >
                         <figcaption class="figure-caption text-center mt-2">
                             Gambar 1.6: Setting IP Gateway.
@@ -228,6 +277,7 @@
                             src="/../../img/mikrotik/9.jpeg" 
                             class="img-fluid rounded shadow" 
                             alt="Setting NAT Srcnat"
+                            id="nat"
                         >
                         <figcaption class="figure-caption text-center mt-2">
                             Gambar 1.9: setting NAT Srcnat.
