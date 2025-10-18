@@ -2330,13 +2330,13 @@
                       >Setting WAN Huawei HG8145v5</a
                     >
                   </li>
-                  <li class="list-group-item position-relative">
+                  <li
+                    class="list-group-item position-relative link-under-maintenance"
+                  >
                     <a
-                      href="#"
-                      class="text-decoration-none text-danger"
-                      onclick="alert('Modul ini sedang dalam proses pembenahan. Mohon maaf atas ketidaknyamanannya.'); return false;"
-                      >Konfigurasi Pisah Traffic Ping Mikrotik
-                      <small>(Pembenahan)</small></a
+                      href="/pages/jaringan/pisah-ping/"
+                      class="text-decoration-none"
+                      >Konfigurasi Pisah Traffic Ping Mikrotik</a
                     >
                   </li>
                   <li class="list-group-item position-relative">
@@ -2392,7 +2392,9 @@
                   pengerasan sistem.
                 </p>
                 <ul class="list-group list-group-flush flex-grow-1">
-                  <li class="list-group-item position-relative">
+                  <li
+                    class="list-group-item position-relative link-under-maintenance"
+                  >
                     <a href="#" class="text-decoration-none text-danger"
                       >Firewall Pada Linux Server (on progress)</a
                     >
@@ -2473,5 +2475,31 @@
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
       crossorigin="anonymous"
     ></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // 1. Definisikan kelas yang akan memicu pemberitahuan
+        const maintenanceClass = "link-under-maintenance";
+
+        // 2. Definisikan pesan pemberitahuan
+        const alertMessage =
+          "⚠️ Modul ini sedang dalam proses pembenahan dan tidak dapat diakses saat ini. Mohon maaf atas ketidaknyamanannya.";
+
+        // 3. Cari semua tautan dengan kelas yang ditentukan
+        const maintenanceLinks = document.querySelectorAll(
+          `.${maintenanceClass}`
+        );
+
+        // 4. Tambahkan event listener untuk setiap tautan
+        maintenanceLinks.forEach((link) => {
+          link.addEventListener("click", function (event) {
+            // Mencegah tindakan default (mengikuti tautan)
+            event.preventDefault();
+
+            // Tampilkan pesan pemberitahuan kepada klien
+            alert(alertMessage);
+          });
+        });
+      });
+    </script>
   </body>
 </html>
