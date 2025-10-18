@@ -85,3 +85,118 @@ body {
   fill: #ffffff; /* Warna panah (putih) */
   /* Hapus semua properti animation: jika ada */
 }
+
+/* 1. Definisi Animasi Masuk (Dari Kanan ke Kiri) */
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%); /* Mulai di luar viewport (geser ke kanan) */
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0); /* Berakhir di posisi normal */
+    opacity: 1;
+  }
+}
+
+/* 2. Definisi Animasi Keluar (Geser ke Kanan) */
+@keyframes slideOutRight {
+  from {
+    transform: translateX(0); /* Mulai di posisi normal */
+    opacity: 1;
+  }
+  to {
+    transform: translateX(
+      100%
+    ); /* Berakhir di luar viewport (geser ke kanan) */
+    opacity: 0;
+  }
+}
+
+/* 3. Terapkan Animasi pada Toast Bootstrap */
+.toast-slide {
+  animation-duration: 0.5s; /* Kecepatan animasi */
+  animation-fill-mode: both;
+}
+
+/* Terapkan saat Toast muncul */
+.toast.showing-slide {
+  animation-name: slideInRight;
+}
+
+/* Terapkan saat Toast muncul dan terlihat */
+.toast.show-slide {
+  opacity: 1;
+  transform: none;
+}
+
+/* Terapkan saat Toast menghilang */
+.toast.hide-slide {
+  animation-name: slideOutRight;
+}
+/* Peningkatan Estetika Dasar */
+.toast-slide-custom {
+  /* Meningkatkan kontras dan bentuk */
+  border-radius: 14px !important; /* Sudut lebih melengkung */
+
+  /* Bayangan yang lebih dalam dan lembut (memberi efek 'floating') */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35),
+    /* Bayangan Utama */ 0 6px 15px rgba(0, 0, 0, 0.15) !important; /* Bayangan Sekunder */
+
+  /* Lebar yang proporsional untuk tampilan HP */
+  max-width: 340px;
+  min-width: 310px;
+
+  /* Gunakan warna dark/hitam agar terlihat premium */
+  background-color: #1a1a1a !important; /* Hitam pekat */
+}
+
+/* 2. Tata Letak Isi (Agar Daftar Proyek lebih rapi) */
+.toast-slide-custom .toast-body {
+  padding: 1.25rem; /* Padding yang lebih besar */
+}
+
+.toast-slide-custom h6 {
+  font-size: 1.05rem; /* Judul sedikit lebih besar */
+  font-weight: 600 !important; /* Sedikit lebih tebal */
+  margin-bottom: 6px !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Garis pemisah tipis */
+  padding-bottom: 5px;
+}
+
+.toast-slide-custom small {
+  display: block; /* Memastikan teks kecil berada di baris baru */
+  margin-top: 5px;
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+/* 3. Gaya Daftar Proyek */
+.toast-slide-custom ul {
+  margin-top: 10px !important;
+  padding-left: 0; /* Hilangkan padding bawaan */
+  list-style: none; /* Hilangkan bullet bawaan */
+}
+
+.toast-slide-custom ul li {
+  font-size: 0.875rem !important;
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.9);
+  position: relative;
+  padding-left: 15px; /* Ruang untuk bullet kustom */
+}
+
+/* Bullet Kustom (menggunakan pseudo-element) */
+.toast-slide-custom ul li::before {
+  content: "•";
+  color: #00bcd4; /* Warna aksen (bisa ganti ke warna tema Anda) */
+  font-weight: bold;
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em;
+}
+
+/* 4. Tombol Tutup */
+.toast-slide-custom .btn-close-white {
+  /* Meningkatkan ukuran tombol tutup */
+  transform: scale(1.1);
+  margin: 1.25rem 1rem 0 auto !important;
+}

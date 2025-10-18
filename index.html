@@ -2344,6 +2344,14 @@
                       >Konfigurasi Pisah Traffic Whatsapp</a
                     >
                   </li>
+                  <li
+                    class="list-group-item position-relative link-under-maintenance"
+                  >
+                    <a href="#" class="text-decoration-none text-danger"
+                      >Konfigurasi Pisah Traffic Game Online (proses
+                      pengerjaan)</a
+                    >
+                  </li>
                 </ul>
               </div>
             </div>
@@ -2473,31 +2481,40 @@
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
       crossorigin="anonymous"
     ></script>
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        // 1. Definisikan kelas yang akan memicu pemberitahuan
-        const maintenanceClass = "link-under-maintenance";
-
-        // 2. Definisikan pesan pemberitahuan
-        const alertMessage =
-          "⚠️ Modul ini sedang dalam proses pembenahan dan tidak dapat diakses saat ini. Mohon maaf atas ketidaknyamanannya.";
-
-        // 3. Cari semua tautan dengan kelas yang ditentukan
-        const maintenanceLinks = document.querySelectorAll(
-          `.${maintenanceClass}`
-        );
-
-        // 4. Tambahkan event listener untuk setiap tautan
-        maintenanceLinks.forEach((link) => {
-          link.addEventListener("click", function (event) {
-            // Mencegah tindakan default (mengikuti tautan)
-            event.preventDefault();
-
-            // Tampilkan pesan pemberitahuan kepada klien
-            alert(alertMessage);
-          });
-        });
-      });
-    </script>
+    <script src="/script/script.js"></script>
   </body>
+  <div
+    class="toast-container position-fixed top-0 end-0 p-3"
+    style="z-index: 1080 !important; margin: 0 !important"
+  >
+    <div
+      class="toast align-items-center text-white bg-dark border-0 toast-slide toast-slide-custom"
+      role="alert"
+      aria-live="assertive"
+      aria-atomic="true"
+      id="projectNotification"
+      data-bs-delay="10000"
+    >
+      <div class="d-flex">
+        <div class="toast-body">
+          <h6 class="mb-1 text-white fw-bold">✅ Update Proyek Terbaru</h6>
+          <small class="text-white-50"
+            >Joko Adhi sedang mengerjakan projek:</small
+          >
+
+          <ul class="list-unstyled mt-2 mb-0" style="font-size: 0.9em">
+            <li>Pembenahan Modul Pisah Traffic Ping (100%)</li>
+            <li>Pengerjaan Modul Firewall Linux Server</li>
+            <li>Pengerjaan Modul Pisah Traffic Game Online</li>
+          </ul>
+        </div>
+        <button
+          type="button"
+          class="btn-close btn-close-white me-2 m-auto"
+          data-bs-dismiss="toast"
+          aria-label="Close"
+        ></button>
+      </div>
+    </div>
+  </div>
 </html>
