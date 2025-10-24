@@ -200,18 +200,3 @@ body {
   transform: scale(1.1);
   margin: 1.25rem 1rem 0 auto !important;
 }
-/* Pastikan ini ada di file CSS Anda */
-@media (prefers-color-scheme: dark) {
-  .card-github-contribution {
-    /* Warna gelap yang menyatu dengan bg-dark Bootstrap */
-    background-color: #212529 !important;
-    color: rgba(255, 255, 255, 0.8) !important;
-    border: 1px solid #495057 !important;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4) !important;
-  }
-
-  /* Pastikan teks tetap terang di mode gelap */
-  .card-github-contribution p.text-muted {
-    color: rgba(255, 255, 255, 0.6) !important;
-  }
-}
