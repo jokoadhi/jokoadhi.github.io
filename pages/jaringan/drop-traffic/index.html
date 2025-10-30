@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Drop Traffic Mikrotik</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Mono&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="../../../style/style2.css" />
+    <link rel="icon" type="image/png" href="/ico.png" />
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4435345623883384"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand ms-3" href="/../../index.html"
+          >📚 Joko Adhi Docs</a
+        >
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto me-3">
+            <li class="nav-item">
+              <a class="nav-link" href="/../../index.html#modules"
+                >Modul Utama</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/../../index.html#about">Tentang</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container-fluid">
+      <div class="row">
+        <nav
+          id="sidebarMenu"
+          class="col-md-3 col-lg-2 d-md-block sidebar collapse"
+        >
+          <div class="position-sticky pt-3">
+            <h5
+              class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted text-uppercase"
+            >
+              Jaringan
+            </h5>
+
+            <hr class="my-3" />
+            <h6
+              class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted text-uppercase"
+            >
+              Daftar isi
+            </h6>
+
+            <ul class="nav flex-column mb-2">
+              <li class="nav-item">
+                <a class="nav-link font-weight-bold" href="#paket">
+                  1. Setting mark-packet
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link font-weight-bold" href="#queues">
+                  2. Setting queues
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link font-weight-bold" href="#perban">
+                  3. Perbandingan traffic
+                </a>
+              </li>
+            </ul>
+
+            <hr class="my-3" />
+
+            <div class="p-3 text-center">
+              <div
+                style="
+                  background-color: #f8f9fa;
+                  height: 250px;
+                  border: 1px dashed #ccc;
+                  padding: 10px;
+                "
+              >
+                <small class="d-block mt-2 text-muted">Sponsor Ads</small>
+              </div>
+            </div>
+          </div>
+        </nav>
+
+        <main class="col-md-9 ms-sm-auto col-lg-10 main-content">
+          <div class="container-fluid breadcrumb-fixed-offset mb-4">
+            <nav style="--bs-breadcrumb-divider: '>'" aria-label="breadcrumb">
+              <ol class="breadcrumb mb-0">
+                <li class="breadcrumb-item"><a href="/">Home</a></li>
+
+                <li class="breadcrumb-item active" aria-current="page">
+                  Traffic Mikrotik Sering Drop
+                </li>
+              </ol>
+            </nav>
+          </div>
+
+          <h1 class="mb-4">MENGATASI TRAFFIC MIKROTIK YANG SERING DROP</h1>
+          <p class="text-muted">Diperbarui: 31 Oktober 2025</p>
+
+          <hr class="mb-5" />
+
+          <section id="introduction" class="mb-5">
+            <h2>1. Seperti Apa Kendala Yang Sebenarnya Terjadi?</h2>
+            <p>
+              Kendalanya bermula ketika tiba" traffic bandwidth distribusi
+              mikrotik pada pelanggan tiba" mengalami Drop, active connection
+              pppoe pelanggan juga ter-restart, tapi hanya sekitar 30 detik lalu
+              UP kembali traffic nya, begitu terus secara berkelanjutan, sudah
+              saya cek keseluruhan koneksi fisik termasuk SFP, kabel Lan, dan
+              Prosessor mikrotik aman" saja dan berjalan normal, setelah lama
+              melakukan analisa ketemulah apa yang menjadi penyebab traffic
+              tiba" Drop, yaitu adanya DDOS dari beberapa pelanggan yang
+              menyebabkan resource mikrotik terbebani atau terbanjiri oleh
+              traffic DDOS yang tidak berguna.
+            </p>
+
+            <div class="alert alert-custom" role="alert">
+              💡 Penting: DDoS Attack adalah singkatan dari Distributed Denial
+              of Service Attack (Serangan Penolakan Layanan Terdistribusi).
+              Serangan DDoS bekerja dengan cara membanjiri target dengan volume
+              traffic (lalu lintas) palsu atau permintaan yang berlebihan.
+            </div>
+          </section>
+
+          <section id="praktik" class="mb-5">
+            <h2>2. Langkah-langkah Cara Mengatasinya</h2>
+            <p id="koneksi">
+              Buka aplikasi winbox lalu remote mikrotik yang akan kita lakukan
+              pengecekan koneksi DDOS nya, jika sudah masuk ke menu New
+              Terminal, kita akan melakukan pengecekan koneksi yang sedang
+              berjalan pada mikrotik. ketik perintah seperti pada gambar
+              dibawah. akan menampilkan sebuah detil settingan dari koneksi
+              mikrotiknya, lihat pada baris max-entries dan total-entries, jika
+              total entries melebihi max-entries mikrotik akan mengalami hang,
+              normalnya total-entries harus tidak sampai bernilai sama atau
+              mendekati nilai max-entries.
+            </p>
+            <figure class="figure mt-0 mb-4">
+              <img
+                src="/../../img/drop-traffic/1.png"
+                class="img-fluid rounded shadow"
+                alt="buka terminal"
+              />
+              <figcaption class="figure-caption text-center mt-2">
+                Gambar 1.0: buka terminal.
+              </figcaption>
+            </figure>
+
+            <p id="koneksi">
+              Selanjutnya setelah kita tau untuk total-entries nya ternyata
+              sangat penuh mendekati max-entries, bisa disimpulkan karena adanya
+              serangan DDOS dari perangkat lain yang menuju ke mikrotik, kita
+              akan lakukan pengecekan IP berapa yang sedang membanjiri traffic
+              mikrotiknya. <br /><br />
+
+              Mauk ke IP -> firewall -> Connections, cari pada kolom Src.Address
+              nya harusnya ada 1 atau beberapa IP lokal yang koneksi nya sangat
+              banyak, sudah dipastikan IP tersebut sedang melakukan DDOS ke arah
+              mikrotik, seperti pada gambar dibawah, yaitu yang sedang melakukan
+              DDOS yaitu IP xxx.xxx.xxx.97
+            </p>
+            <figure class="figure mt-0 mb-4">
+              <img
+                src="/../../img/drop-traffic/2.png"
+                class="img-fluid rounded shadow"
+                alt="buka menu firewall connection"
+              />
+              <figcaption class="figure-caption text-center mt-2">
+                Gambar 1.1: buka menu firewall connection.
+              </figcaption>
+            </figure>
+
+            Oke untuk identifikasi IP yang sedang melakukan DDOS sudah selesai,
+            ketemu IP nya xxx.xxx.xxx.97 <br /><br />
+
+            Solusi untuk mengatasi DDOS tersebut bisa dengan meng-upgrade
+            firmware dari alatnya, atau jika sudah di upgrade tetap melakukan
+            broadcast DDOS, solusi terakhir penggantian alatnya ke alat dengan
+            merek lain, untuk dari kendala saya ini yang sedang melakukan DDOS
+            ke mikrotik yaitu router toto-link. <br /><br />
+
+            setelah dilakukan penggantian alat ataupun melakukan upgrade
+            firmware alat yang DDOS tersebut, tunggu beberapa jam sesuai nilai
+            timeout koneksi DDOS, nantinya akan hilang sendiri, atau untuk lebih
+            cepatnya yaitu melakukan restart mikrotik.
+          </section>
+
+          <!-- <div class="alert alert-custom" role="alert">
+              **💡 Penting:** [Sistem Operasi] adalah otak dari komputer dan
+              server.
+            </div> -->
+
+          <hr />
+
+          <div class="text-center mt-5 mb-5 p-3 bg-light rounded shadow-sm">
+            **Selesai.** Anda telah mencapai akhir dari topik ini. Silakan pilih
+            topik lain melalui Sidebar di sebelah kiri atau kembali ke
+            <a href="/../../index.html" class="text-decoration-none"
+              >Halaman Modul Utama</a
+            >.
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
