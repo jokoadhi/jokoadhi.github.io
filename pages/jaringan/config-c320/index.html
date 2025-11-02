@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Konfigurasi OLT ZTE C320</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Mono&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="../../../style/style2.css" />
+    <link rel="icon" type="image/png" href="/ico.png" />
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4435345623883384"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand ms-3" href="/../../index.html"
+          >📚 Joko Adhi Docs</a
+        >
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto me-3">
+            <li class="nav-item">
+              <a class="nav-link" href="/../../index.html#modules"
+                >Modul Utama</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/../../index.html#about">Tentang</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container-fluid">
+      <div class="row">
+        <nav
+          id="sidebarMenu"
+          class="col-md-3 col-lg-2 d-md-block sidebar collapse"
+        >
+          <div class="position-sticky pt-3">
+            <h5
+              class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted text-uppercase"
+            >
+              Jaringan
+            </h5>
+
+            <hr class="my-3" />
+            <h6
+              class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted text-uppercase"
+            >
+              Daftar isi
+            </h6>
+
+            <ul class="nav flex-column mb-2">
+              <li class="nav-item">
+                <a class="nav-link font-weight-bold" href="#penjelasan">
+                  1. Penjelasan apa itu konfigurasi dasar OLT C320
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link font-weight-bold" href="#part">
+                  2. Konfigurasi module OLT
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link font-weight-bold" href="#koneksi">
+                  3. Set koneksi OLT C320
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link font-weight-bold" href="#bb">
+                  4. Set broadband service
+                </a>
+              </li>
+            </ul>
+
+            <hr class="my-3" />
+
+            <div class="p-3 text-center">
+              <div
+                style="
+                  background-color: #f8f9fa;
+                  height: 250px;
+                  border: 1px dashed #ccc;
+                  padding: 10px;
+                "
+              >
+                <small class="d-block mt-2 text-muted">Sponsor Ads</small>
+              </div>
+            </div>
+          </div>
+        </nav>
+
+        <main class="col-md-9 ms-sm-auto col-lg-10 main-content">
+          <div class="container-fluid breadcrumb-fixed-offset mb-4">
+            <nav style="--bs-breadcrumb-divider: '>'" aria-label="breadcrumb">
+              <ol class="breadcrumb mb-0">
+                <li class="breadcrumb-item"><a href="/">Home</a></li>
+
+                <li class="breadcrumb-item active" aria-current="page">
+                  Konfigurasi Dasar OLT C320
+                </li>
+              </ol>
+            </nav>
+          </div>
+
+          <h1 class="mb-4">KONFIGURASI DASAR PADA OLT C320</h1>
+          <p class="text-muted">Diperbarui: 3 November 2025</p>
+
+          <hr class="mb-5" />
+
+          <section id="introduction" class="mb-5">
+            <h2 id="penjelasan">1. Apa Itu Konfigurasi Dasar OLT C320?</h2>
+            <p>
+              Konfigurasi dasar pada OLT C320 yaitu konfigurasi dasar yang
+              mengacu pada penerapan settingan hingga OLT dapat terhubung ke
+              internet dan juga dapat mendistribusikan sumber internet ke
+              clientnya, dikarenakan OLT C320 ini adalah GPON, maka kita akan
+              menggunakan vlan untuk koneksi distribusi internetnya.
+            </p>
+            <p>
+              Sebelum kita melakukan penerapan settingannya, kita harus tau
+              bagian" part dari OLT C320, dengan melihat gambar dibawah.
+            </p>
+            <figure class="figure mt-0 mb-4">
+              <img
+                src="/../../img/olt-c320/1.png"
+                class="img-fluid rounded shadow"
+                alt="buka menu firewall connection"
+              />
+              <figcaption class="figure-caption text-center mt-2">
+                Gambar 1.0: Tampilan OLT C320.
+              </figcaption>
+            </figure>
+            <ul>
+              <li>Slot 1 = GTGH/GTGO Card</li>
+              <li>Slot 2 = GTGH/GTGO Card</li>
+              <li>Slot 3 = PRAM Card</li>
+              <li>Slot 4 = SMXA Card</li>
+            </ul>
+          </section>
+
+          <section id="praktik" class="mb-5">
+            <h2 id="part">
+              2. Penerapan Konfigurasi Dasar (pengaktifan module-module)
+            </h2>
+            <p>
+              Pertama kita akan melakukan remote ke OLT C320 via telnet, secara
+              default biasanya akses OLT melewati telnet, bisa melalui CMD untuk
+              windows, Terminal untuk linux maupun Putty, dalam dokumentasi ini
+              kita akan menggunakan Terminal linux.
+            </p>
+            <p>
+              Ketikkan perintah seperti dibawah, untuk IP Default OLT C320
+              adalah 136.1.1.100 , sebelum remote OLT pastikan IP Laptop kita
+              sudah 1 network dengan IP OLT, jika belum bisa disesuaikan dahulu.
+            </p>
+            <section id="main" class="mb-5">
+              <pre><code>joko@ubuntu-desk:~$ telnet 136.1.1.100
+Trying 136.1.1.100...
+Connected to 136.1.1.100.
+Escape character is '^]'.
+*************************************************************************
+Welcome to ZXAN product C320 of ZTE Corporation
+*************************************************************************
+
+Last login time is 11.03.2025-00:39:00-UTC, 0 authentication failures happened since that time.
+Username:   
+Password:      
+</code></pre>
+              <p>
+                Jika sudah berhasil masuk, lalu inputkan user login default
+                <br />
+                username: zte <br />
+                password: zte
+              </p>
+            </section>
+
+            <p>
+              Mengaktifkan Slot Card dengan menggunakan perintah dibawah, tapi
+              sesuaikan dengan Card yang ada.
+            </p>
+            <section id="main" class="mb-5">
+              <pre><code>ZXAN#con t       
+%Info 20272: Enter configuration commands, one per line. End with CTRL/Z.
+ZXAN(config)#
+add-rack rackno 1 racktype C320Rack
+add-shelf shelfno 1 shelftype C320_SHELF
+add-card slotno 3 PRAM
+add-card slotno 1 GTGH
+add-card slotno 4 SMXA
+set-pnp enable      
+</code></pre>
+            </section>
+
+            <p>
+              Cek status Card dengan cara menjalankan perintah dibawah, pastikan
+              statusnya INSERVICE.
+            </p>
+            <section id="main" class="mb-5">
+              <pre><code>ZXAN(config)#show card
+Rack Shelf Slot CfgType RealType Port  HardVer SoftVer         Status
+-------------------------------------------------------------------------------
+1    1     1    GTGH    GTGHG    16    V1.0.0  V2.1.0          INSERVICE
+1    1     3    PRAM    PRAM     3     V1.0.0  V1.01           INSERVICE
+1    1     4    SMXA    SMXA     3     V1.0.0  V2.1.0          INSERVICE
+      
+</code></pre>
+            </section>
+
+            <p>
+              Secara default setiap PON GTGH/GTGO statusnya disable atau mati
+              mengakibatkan ketika dicek redamannya tidak akan muncul, maka dari
+              itu kita perlu mengaktifkan PON nya satu persatu, sesuai PON yang
+              akan kita gunakan untuk distribusi.
+            </p>
+
+            <p>
+              Cara melihat status PON sedang mati atau hidup dengan cara
+              menjalankan perintah dibawah, arti dari perintah dibawah adalah
+              akan memunculkan detil status dari PON 10, jika statusnya shutdown
+              berati PON sedang mati, maka akan kita nyalakan agar bisa
+              memunculkan redaman.
+            </p>
+            <section id="main" class="mb-5">
+              <pre><code>ZXAN#show running-config interface gpon-olt_1/1/10
+Building configuration...
+interface gpon-olt_1/1/10
+  shutdown
+  linktrap disable
+!
+end
+</code></pre>
+            </section>
+
+            <p>
+              Aktifkan PON dengan menjalankan perintah berikut, perintah berikut
+              akan mengaktifkan PON 10.
+            </p>
+            <section id="main" class="mb-5">
+              <pre><code>ZXAN#conf t
+%Info 20272: Enter configuration commands, one per line. End with CTRL/Z.
+ZXAN(config)#interface gpon-olt_1/1/10
+ZXAN(config-if)#no shutdown 
+</code></pre>
+            </section>
+
+            <p>
+              Cek kembali status PON 10, seharusnya status sudah menunjukkan no
+              shutdown atau aktif.
+            </p>
+            <section id="main" class="mb-5">
+              <pre><code>ZXAN#show running-config interface gpon-olt_1/1/10
+Building configuration...
+interface gpon-olt_1/1/10
+  no shutdown
+  linktrap disable
+!
+end
+</code></pre>
+            </section>
+
+            <h2 id="koneksi">3. Set Koneksi OLT C320</h2>
+            <p>
+              Kita akan menambahkan IP Management melalui vlan, dalam
+              dokumentasi ini kita akan menggunakan vlan50 untuk management OLT
+              C320.
+            </p>
+            <section id="main" class="mb-5">
+              <pre><code>ZXAN#conf t
+ZXAN(config)#vlan 50
+ZXAN(config)#exit
+ZXAN(config)#interface vlan50
+ZXAN(config-vlan50)#ip address 192.168.10.2 255.255.255.252
+</code></pre>
+            </section>
+
+            <p>
+              Tambahkan juga vlan untuk distribusi internet ke client, dalam
+              dokumentasi ini saya menggunakan vlan distribusi 100,101,102 dan
+              500.
+            </p>
+            <section id="main" class="mb-5">
+              <pre><code>ZXAN#conf t
+ZXAN(config)#vlan 1oo
+ZXAN(config)#vlan 101
+ZXAN(config)#vlan 102
+ZXAN(config)#vlan 500
+</code></pre>
+            </section>
+
+            <p>
+              Agar OLT bisa diakses langsung tanpa menggunakan NAT, set juga
+              untuk default gateway nya.
+            </p>
+            <section id="main" class="mb-5">
+              <pre><code>ZXAN#conf t
+%Info 20272: Enter configuration commands, one per line. End with CTRL/Z.
+ZXAN(config)#interface vlan50
+ZXAN(config-vlan50)#
+no ip route 0.0.0.0 0.0.0.0
+ip route 0.0.0.0 0.0.0.0  192.168.10.1
+</code></pre>
+            </section>
+
+            <p>
+              Jika OLT C320 nya akan ditambahkan di NetNument, set juga untuk
+              SNMP nya untuk Read only dan Read Write.
+            </p>
+            <section id="main" class="mb-5">
+              <pre><code>ZXAN#conf t
+%Info 20272: Enter configuration commands, one per line. End with CTRL/Z.
+ZXAN(config)#snmp-server community globaltechro view AllView ro
+ZXAN(config)#snmp-server community globaltechrw view AllView rw
+</code></pre>
+            </section>
+
+            <p>
+              Kita perlu menambahkan user baru agar lebih aman, hindari password
+              default, kalo bisa malah dihapus saja untuk user default, demi
+              keamanan OLT.
+            </p>
+            <section id="main" class="mb-5">
+              <pre><code>ZXAN(config)#service password-encryption
+ZXAN(config)#username tes password tes privilege 10
+ZXAN(config)#show username
+Username    Password      	                              Privilege         Max-sessions
+zte	              dnXspUMqxfJOgln2Hm7Olw==   supervisor	       16
+tes	             kAFQmDzST7BNRj99KOF/cg==      administrator      16
+</code></pre>
+            </section>
+
+            <p>
+              Aktifkan Uplink Port, <br />
+              keterangan: 1 adalah rack, 4 adalah Slot, 2 adalah port.
+            </p>
+            <section id="main" class="mb-5">
+              <pre><code>ZXAN(config)#interface xgei_1/4/2 
+no shutdown
+</code></pre>
+            </section>
+
+            <p>
+              Tambahkan vlan management maupun distribusi ke port uplink. dalam
+              dokumentasi ini, saya tambahkan 4 vlan distribusi dan 1 vlan
+              management OLT.
+            </p>
+            <section id="main" class="mb-5">
+              <pre><code>ZXAN(config)#interface xgei_1/4/2 
+switchport mode hybrid
+negotiation auto
+flowcontrol disable
+uplink-isolate disable
+switchport vlan 50,100-102,500 tag
+</code></pre>
+            </section>
+
+            <h2 id="bb">4. Setting Broadband Service</h2>
+            <p>
+              Buat onu profile yang berfungsi untuk memberitahu OLT ada berapa
+              interface/port pada ONT tersebut.
+            </p>
+            <section id="main" class="mb-5">
+              <pre><code>ZXAN#conf t
+%Info 20272: Enter configuration commands, one per line. End with CTRL/Z.
+ZXAN(config)#pon
+ZXAN(config-pon)#
+onu-type ALL-ONT gpon max-tcont 8 max-gemport 32 max-switch-perslot 32 max-flow-perswitch 8
+onu-type-if ALL-ONT eth_0/1-4 
+onu-type-if ALL-ONT wifi_0/1-4 
+onu-type-if ALL-ONT pots_0/1-2 
+</code></pre>
+            </section>
+
+            <p>Buat vlan profile, berfungsi ketika ingin set omci pada ONT.</p>
+            <section id="main" class="mb-5">
+              <pre><code>ZXAN#conf t
+%Info 20272: Enter configuration commands, one per line. End with CTRL/Z.
+ZXAN(config)#gpon
+ZXAN(config-gpon)#
+  onu profile vlan pppoe100 tag-mode tag cvlan 100
+</code></pre>
+            </section>
+
+            <p>
+              Buat traffic profile (T-cont), settingan ini akan membatasi
+              bandwidth ONT dengan Menetapkan Maximum Bandwidth (MBW) sebesar
+              102400 Kbps (100 Mbps).
+            </p>
+            <section id="main" class="mb-5">
+              <pre><code>ZXAN#conf t
+ZXAN(config)#gpon 
+ZXAN(config-gpon)#profile tcont pppoe type 4 maximum 102400
+</code></pre>
+            </section>
+
+            <p>
+              Buat bandwidth/Traffic Profile (Gemport), nilai dari sir dan pir
+              yaitu Kbps.
+            </p>
+            <section id="main" class="mb-5">
+              <pre><code>ZXAN#conf t
+ZXAN(config)#gpon 
+ZXAN(config-gpon)#profile traffic 10M sir 10000 pir 10000
+[Successful]
+</code></pre>
+            </section>
+          </section>
+
+          <!-- <div class="alert alert-custom" role="alert">
+              **💡 Penting:** [Sistem Operasi] adalah otak dari komputer dan
+              server.
+            </div> -->
+
+          <hr />
+
+          <div class="text-center mt-5 mb-5 p-3 bg-light rounded shadow-sm">
+            **Selesai.** Anda telah mencapai akhir dari topik ini. Silakan pilih
+            topik lain melalui Sidebar di sebelah kiri atau kembali ke
+            <a href="/../../index.html" class="text-decoration-none"
+              >Halaman Modul Utama</a
+            >.
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
