@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fake Log Linux</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Mono&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="../../../style/style2.css" />
+    <link rel="icon" type="image/png" href="/ico.png" />
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4435345623883384"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand ms-3" href="/../../index.html"
+          >📚 Joko Adhi Docs</a
+        >
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto me-3">
+            <li class="nav-item">
+              <a class="nav-link" href="/../../index.html#modules"
+                >Modul Utama</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/../../index.html#about">Tentang</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container-fluid">
+      <div class="row">
+        <nav
+          id="sidebarMenu"
+          class="col-md-3 col-lg-2 d-md-block sidebar collapse"
+        >
+          <div class="position-sticky pt-3">
+            <h5
+              class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted text-uppercase"
+            >
+              Keamanan jaringan
+            </h5>
+
+            <hr class="my-3" />
+            <h6
+              class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted text-uppercase"
+            >
+              Daftar isi
+            </h6>
+
+            <ul class="nav flex-column mb-2">
+              <li class="nav-item">
+                <a class="nav-link font-weight-bold" href="#introduction">
+                  1. Contoh Fake Log
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link font-weight-bold" href="#drop-in">
+                  2. Drop traffic dari luar
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link font-weight-bold" href="#pengecualian">
+                  3. Pengecualian IP
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link font-weight-bold" href="#enable">
+                  4. Mengaktifkan Firewall
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link font-weight-bold" href="#verifikasi">
+                  5. Verifikasi Rule Firewall
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link font-weight-bold" href="#uji">
+                  6. Uji Coba Kerentanan
+                </a>
+              </li>
+            </ul>
+
+            <hr class="my-3" />
+
+            <div class="p-3 text-center">
+              <div
+                style="
+                  background-color: #f8f9fa;
+                  height: 250px;
+                  border: 1px dashed #ccc;
+                  padding: 10px;
+                "
+              >
+                <small class="d-block mt-2 text-muted">Sponsor Ads</small>
+              </div>
+            </div>
+          </div>
+        </nav>
+
+        <main class="col-md-9 ms-sm-auto col-lg-10 main-content">
+          <div class="container-fluid breadcrumb-fixed-offset mb-4">
+            <nav style="--bs-breadcrumb-divider: '>'" aria-label="breadcrumb">
+              <ol class="breadcrumb mb-0">
+                <li class="breadcrumb-item"><a href="/">Home</a></li>
+
+                <li class="breadcrumb-item active" aria-current="page">
+                  Mengatasi serangan Fake Log Linux Ubuntu
+                </li>
+              </ol>
+            </nav>
+          </div>
+
+          <h1 class="mb-4">
+            MENGATASI SERANGAN FAKE LOG PADA LINUX UBUNTU 24.04
+          </h1>
+          <p class="text-muted">Diperbarui: 2 November 2025</p>
+
+          <hr class="mb-5" />
+
+          <section id="introduction" class="mb-5">
+            <h2>1. Kendala Yang Terjadi</h2>
+            <p>
+              Kendalanya bermula ketika tiba" ada log yang masuk ke aplikasi
+              syslog monitoring, IP pengirim log tersebut tidak terdaftar di
+              aplikasi monitoring dan mengirimkan pesan sebuah link yang menuju
+              ke website P*rn. sebuah celah ini bisa dijadikan seseorang sebagai
+              gerbang awal menuju serangan lain yang lebih berat, maka dari itu
+              harus segera dilakukan tindakan yang sesuai untuk meminimalisir
+              serangan sama dikemudian hari.
+            </p>
+            <p>
+              Tampilan log yang dikirimkan oleh seseorang yang tidak diketahui
+              adalah seperti gambar dibawah.
+            </p>
+            <figure class="figure mt-0 mb-4">
+              <img
+                src="/../../img/log-linux/1.png"
+                class="img-fluid rounded shadow"
+                alt="buka menu firewall connection"
+              />
+              <figcaption class="figure-caption text-center mt-2">
+                Gambar 1.0: Anomali log.
+              </figcaption>
+            </figure>
+
+            <div class="alert alert-custom" role="alert">
+              💡 Penting: Fake log (log palsu) adalah catatan aktivitas sistem
+              atau jaringan yang sengaja dibuat atau dimodifikasi oleh pihak
+              yang tidak sah (atau dalam konteks pengujian yang akan kita
+              lakukan ini nanti) untuk menyerupai log asli, tanpa benar-benar
+              terjadi peristiwa tersebut.
+            </div>
+          </section>
+
+          <section id="praktik" class="mb-5">
+            <h2>2. Langkah-langkah Cara Mengatasinya</h2>
+            <p id="drop-in">
+              Remote linux ubuntu, lalu berikan rule untuk membatasi traffic
+              dari luar dan izinkan traffic yang mengarah ke luar, ini adalah
+              rule wajib firewall untuk keamanan server linux.
+            </p>
+            <section id="main" class="mb-5">
+              <pre><code>joko@ubuntu-desk:~$ sudo ufw default deny incoming
+joko@ubuntu-desk:~$ sudo ufw default allow outgoing         
+</code></pre>
+            </section>
+
+            <p id="pengecualian">
+              Otomatis setelah menambahkan rule diatas, traffic dari luar akan
+              di drop semua, maka dari itu agar mikrotik bisa mengirimkan log ke
+              aplikasi monitoring, harus mengecualikan untuk IP mikrotiknya,
+              perintahnya seperti dibawah. <br /><br />
+              ganti IP 192.168.88.1 dan 192.168.88.2 sesuai IP Mikrotiknya.
+            </p>
+            <section id="main" class="mb-5">
+              <pre><code>joko@ubuntu-desk:~$ sudo ufw allow from 192.168.88.1 to any port 514 proto udp
+joko@ubuntu-desk:~$ sudo ufw allow from 192.168.88.2 to any port 514 proto udp        
+</code></pre>
+            </section>
+
+            <p id="enable">
+              Aktifkan dan Reload firewall agar semua rule tadi dapat diterapkan
+              oleh linux ubuntu.
+            </p>
+            <section id="main" class="mb-5">
+              <pre><code>joko@ubuntu-desk:~$ sudo ufw enable
+joko@ubuntu-desk:~$ sudo ufw reload        
+</code></pre>
+            </section>
+
+            <p id="verifikasi">
+              Verifikasi rule yang sudah dibuat, kira" output nya akan seperti
+              ini.
+            </p>
+            <section id="main" class="mb-5">
+              <pre><code>joko@ubuntu-desk:~$ sudo ufw status verbose
+To                         Action      From
+--                         ------      ----
+514/udp                    ALLOW IN    192.168.88.1
+514/udp                    ALLOW IN    192.168.88.2        
+</code></pre>
+              <p>
+                sampai ini harusnya tidak akan ada yang bisa mengirimkan fake
+                log kecuali IP yang sudah diizinkan pada rule firewall.
+              </p>
+            </section>
+
+            <h2 id="uji">3. Uji Coba Kerentanan</h2>
+            <p id="terminal">
+              Uji kerentanan lagi menggunakan fake log ke arah IP Linux Server
+              dengan menggunakan perintah dibawah. Agar Fake Log bisa berjalan
+              seperti ketika seseorang menyusupi log seperti gambar paling atas
+              pada modul ini, disarankan menggunakan IP selain yang diizinkan
+              pada Rule Firewall Linux.
+            </p>
+            <section id="main" class="mb-5">
+              <pre><code>joko@ubuntu-desk:~$ echo "<190>$(date '+%b %d %H:%M:%S') MikroTik ssh,info FAKE login from 10.10.10.99 via ssh" | nc -u -w1 192.168.1.10 514
+</code></pre>
+              <p>
+                Ganti bagian IP 192.168.1.10 menjadi IP dari Linux Servernya,
+                lalu cek Log pada monitoring, seharusnya Fake Log sudah tidak
+                bisa lagi masuk ke Log Linux Server karena IP tidak terdaftar
+                pada Rule Firewall yang diizinkan.
+              </p>
+              <div class="alert alert-custom" role="alert">
+                💡 Penting: Uji Coba diatas hanya untuk pembelajaran dan edukasi
+                terkait kerentanan port UDP pada Linux Server, mengirimkan Fake
+                Log ke Linux Server tanpa persetujuan pemilik server dapat
+                terkena UU ITE!.
+              </div>
+            </section>
+          </section>
+
+          <!-- <div class="alert alert-custom" role="alert">
+              **💡 Penting:** [Sistem Operasi] adalah otak dari komputer dan
+              server.
+            </div> -->
+
+          <hr />
+
+          <div class="text-center mt-5 mb-5 p-3 bg-light rounded shadow-sm">
+            **Selesai.** Anda telah mencapai akhir dari topik ini. Silakan pilih
+            topik lain melalui Sidebar di sebelah kiri atau kembali ke
+            <a href="/../../index.html" class="text-decoration-none"
+              >Halaman Modul Utama</a
+            >.
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
