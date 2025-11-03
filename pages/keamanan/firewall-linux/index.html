@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Drop Traffic Mikrotik</title>
+    <title>Firewall linux</title>
 
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
@@ -67,7 +67,7 @@
             <h5
               class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted text-uppercase"
             >
-              Jaringan
+              Keamanan Jaringan
             </h5>
 
             <hr class="my-3" />
@@ -79,14 +79,14 @@
 
             <ul class="nav flex-column mb-2">
               <li class="nav-item">
-                <a class="nav-link font-weight-bold" href="#terminal">
-                  1. Melihat entries koneksi
+                <a class="nav-link font-weight-bold" href="#praktik">
+                  1. Penerapan firewall UFW
                 </a>
               </li>
 
               <li class="nav-item">
-                <a class="nav-link font-weight-bold" href="#firewall-koneksi">
-                  2. Identifikasi IP
+                <a class="nav-link font-weight-bold" href="#iptables">
+                  2. Penerapan IPTables
                 </a>
               </li>
             </ul>
@@ -115,117 +115,488 @@
                 <li class="breadcrumb-item"><a href="/">Home</a></li>
 
                 <li class="breadcrumb-item active" aria-current="page">
-                  Traffic Mikrotik Sering Drop
+                  Firewall Pada Linux Ubuntu Server 24.04
                 </li>
               </ol>
             </nav>
           </div>
 
-          <h1 class="mb-4">MENGATASI TRAFFIC MIKROTIK YANG SERING DROP</h1>
-          <p class="text-muted">Diperbarui: 31 Oktober 2025</p>
+          <h1 class="mb-4">
+            PENERAPAN FIREWALL PADA LINUX UBUNTU SERVER 24.04
+          </h1>
+          <p class="text-muted">Diperbarui: 4 November 2025</p>
 
           <hr class="mb-5" />
 
           <section id="introduction" class="mb-5">
-            <h2>1. Seperti Apa Kendala Yang Sebenarnya Terjadi?</h2>
+            <h2>1. Kenapa Kita Harus Menerapkan Firewall Pada Server Kita?</h2>
             <p>
-              Kendalanya bermula ketika tiba" traffic bandwidth distribusi
-              mikrotik pada pelanggan tiba" mengalami Drop, active connection
-              pppoe pelanggan juga ter-restart, tapi hanya sekitar 30 detik lalu
-              UP kembali traffic nya, begitu terus secara berkelanjutan, sudah
-              saya cek keseluruhan koneksi fisik termasuk SFP, kabel Lan, dan
-              Prosessor mikrotik aman" saja dan berjalan normal, setelah lama
-              melakukan analisa ketemulah apa yang menjadi penyebab traffic
-              tiba" Drop, yaitu adanya DDOS dari beberapa pelanggan yang
-              menyebabkan resource mikrotik terbebani atau terbanjiri oleh
-              traffic DDOS yang tidak berguna.
+              Penerapan firewall pada server adalah garis pertahanan pertama dan
+              paling fundamental dalam keamanan siber. Tanpa firewall, server
+              akan terbuka lebar terhadap ancaman dari seluruh internet,
+              terutama jika server menggunakan IP Publik, sangat rentan terhadap
+              berbagai serangan siber di jaringan internet dunia.
             </p>
-            <p>
-              Anomali atau keanehan ketika mikrotik terdampak oleh serangan DDOS
-              yaitu tiba" Packet Rate melonjak berkali lipat dari Packet Rate
-              normalnya seperti gambar dibawah, traffic bandwidth tetap normal,
-              tapi hanya melonjak di Packet Rate nya.
-            </p>
-            <figure class="figure mt-0 mb-4">
-              <img
-                src="/../../img/drop-traffic/1.png"
-                class="img-fluid rounded shadow"
-                alt="buka menu firewall connection"
-              />
-              <figcaption class="figure-caption text-center mt-2">
-                Gambar 1.0: Anomali traffic Packet Rate.
-              </figcaption>
-            </figure>
-
-            <div class="alert alert-custom" role="alert">
-              💡 Penting: DDoS Attack adalah singkatan dari Distributed Denial
-              of Service Attack (Serangan Penolakan Layanan Terdistribusi).
-              Serangan DDoS bekerja dengan cara membanjiri target dengan volume
-              traffic (lalu lintas) palsu atau permintaan yang berlebihan.
-            </div>
           </section>
 
           <section id="praktik" class="mb-5">
-            <h2>2. Langkah-langkah Cara Mengatasinya</h2>
-            <p id="terminal">
-              Buka aplikasi winbox lalu remote mikrotik yang akan kita lakukan
-              pengecekan koneksi DDOS nya, jika sudah masuk ke menu New
-              Terminal, kita akan melakukan pengecekan koneksi yang sedang
-              berjalan pada mikrotik. ketik perintah seperti pada gambar
-              dibawah. akan menampilkan sebuah detil settingan dari koneksi
-              mikrotiknya, lihat pada baris max-entries dan total-entries, jika
-              total entries melebihi max-entries mikrotik akan mengalami hang,
-              normalnya total-entries harus tidak sampai bernilai sama atau
-              mendekati nilai max-entries.
+            <h2>
+              2. Penerapan Firewall menggunakan UFW (Uncomplicated Firewall)
+            </h2>
+            <p>
+              Instalasi UFW (jika belum terinstall), Meskipun UFW biasanya sudah
+              terinstal secara default di Ubuntu, kalian dapat memastikannya
+              atau menginstalnya dengan perintah ini.
             </p>
-            <figure class="figure mt-0 mb-4">
-              <img
-                src="/../../img/drop-traffic/2.png"
-                class="img-fluid rounded shadow"
-                alt="buka terminal"
-              />
-              <figcaption class="figure-caption text-center mt-2">
-                Gambar 1.1: buka terminal.
-              </figcaption>
-            </figure>
+            <pre class="mb-5"><code>sudo apt update
+sudo apt install ufw      
+</code></pre>
 
-            <p id="firewall-koneksi">
-              Selanjutnya setelah kita tau untuk total-entries nya ternyata
-              sangat penuh mendekati max-entries, bisa disimpulkan karena adanya
-              serangan DDOS dari perangkat lain yang menuju ke mikrotik, kita
-              akan lakukan pengecekan IP berapa yang sedang membanjiri traffic
-              mikrotiknya. <br /><br />
-
-              Mauk ke IP -> firewall -> Connections, cari pada kolom Src.Address
-              nya harusnya ada 1 atau beberapa IP lokal yang koneksi nya sangat
-              banyak, sudah dipastikan IP tersebut sedang melakukan DDOS ke arah
-              mikrotik, seperti pada gambar dibawah, yaitu yang sedang melakukan
-              DDOS yaitu IP xxx.xxx.xxx.97
+            <p>
+              Memeriksa status UFW, Sebelum membuat perubahan, selalu periksa
+              status UFW. Pada instalasi baru, statusnya kemungkinan besar
+              adalah Status: inactive (Tidak aktif).
             </p>
-            <figure class="figure mt-0 mb-4">
-              <img
-                src="/../../img/drop-traffic/3.png"
-                class="img-fluid rounded shadow"
-                alt="buka menu firewall connection"
-              />
-              <figcaption class="figure-caption text-center mt-2">
-                Gambar 1.2: buka menu firewall connection.
-              </figcaption>
-            </figure>
+            <pre class="mb-5"><code>sudo ufw status verbose      
+</code></pre>
 
-            Oke untuk identifikasi IP yang sedang melakukan DDOS sudah selesai,
-            ketemu IP nya xxx.xxx.xxx.97 <br /><br />
+            <p>
+              Secara default, dianjurkan untuk memblokir semua koneksi masuk
+              (incoming) dan mengizinkan semua koneksi keluar (outgoing) untuk
+              server, karena server harus dapat berinisiatif terhubung ke luar
+              (misalnya untuk memperbarui).
+            </p>
+            <p>
+              <b>Perhatian:</b> Jangan aktifkan UFW sebelum Anda mengizinkan
+              koneksi SSH Anda!
+            </p>
+            <pre class="mb-5"><code>sudo ufw default deny incoming
+sudo ufw default allow outgoing      
+</code></pre>
 
-            Solusi untuk mengatasi DDOS tersebut bisa dengan meng-upgrade
-            firmware dari alatnya, atau jika sudah di upgrade tetap melakukan
-            broadcast DDOS, solusi terakhir penggantian alatnya ke alat dengan
-            merek lain, untuk dari kendala saya ini yang sedang melakukan DDOS
-            ke mikrotik yaitu router toto-link. <br /><br />
+            <p>
+              Dikarenakan pada rule sebelumnya akan melakukan drop semua koneksi
+              dari luar, maka protokol remote seperti ssh juga ikut terblokir,
+              dampaknya kita tidak bisa mengakses atau me-remote servernya,
+              Untuk memastikan kita tetap bisa melakukan akses ke server kita,
+              kita harus mengizinkan koneksi SSH (biasanya di Port 22) sebelum
+              mengaktifkan UFW.
+            </p>
+            <pre class="mb-5"><code>sudo ufw allow ssh
+# ATAU
+sudo ufw allow 22/tcp      
+</code></pre>
 
-            setelah dilakukan penggantian alat ataupun melakukan upgrade
-            firmware alat yang DDOS tersebut, tunggu beberapa jam sesuai nilai
-            timeout koneksi DDOS, nantinya akan hilang sendiri, atau untuk lebih
-            cepatnya yaitu melakukan restart mikrotik.
+            <p>
+              Jika server kita juga menjalankan layanan lain (misalnya web
+              server), kita juga harus mengizinkan port-port yang digunakan
+              tersebut:
+            </p>
+            <ul class="mb-5">
+              <li>
+                HTTP (Port 80): sudo ufw allow http atau sudo ufw allow 80/tcp
+              </li>
+              <li>
+                HTTPS (Port 443): sudo ufw allow https atau sudo ufw allow
+                443/tcp
+              </li>
+            </ul>
+
+            <p>
+              Setelah semua aturan penting (terutama SSH) telah ditambahkan,
+              kita dapat mengaktifkan firewall. Kita akan diminta untuk
+              konfirmasi, ketik y dan tekan Enter.
+            </p>
+            <pre class="mb-5"><code>sudo ufw enable      
+</code></pre>
+
+            <p>Perintah UFW lainnya.</p>
+
+            <div class="table-responsive mt-4 mb-5">
+              <table class="table table-bordered table-hover">
+                <thead class="table-custom">
+                  <tr>
+                    <th scope="col">Perintah</th>
+                    <th scope="col">Fungsi</th>
+                    <th scope="col">Contoh</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><code>sudo ufw allow [port/protokol]</code></td>
+                    <td>Mengizinkan koneksi ke port/protokol tertentu.</td>
+                    <td><code>sudo ufw allow 80/tcp</code></td>
+                  </tr>
+
+                  <tr>
+                    <td><code>sudo ufw deny [port/protokol]</code></td>
+                    <td>Memblokir koneksi ke port/protokol tertentu.</td>
+                    <td><code>sudo ufw deny 21/tcp</code></td>
+                  </tr>
+
+                  <tr>
+                    <td><code>sudo ufw allow from [IP]</code></td>
+                    <td>Mengizinkan koneksi dari IP spesifik.</td>
+                    <td><code>sudo ufw allow from 192.168.1.100</code></td>
+                  </tr>
+
+                  <tr>
+                    <td>
+                      <code>sudo ufw allow from [IP] to any port [port]</code>
+                    </td>
+                    <td>
+                      Mengizinkan koneksi dari IP spesifik ke port tertentu.
+                    </td>
+                    <td>
+                      <code
+                        >sudo ufw allow from 203.0.113.4 to any port 22</code
+                      >
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td><code>sudo ufw delete [aturan]</code></td>
+                    <td>
+                      Menghapus aturan (gunakan nomor dari
+                      <code>ufw status numbered</code>).
+                    </td>
+                    <td><code>sudo ufw delete 3</code></td>
+                  </tr>
+
+                  <tr>
+                    <td><code>sudo ufw disable</code></td>
+                    <td>Menonaktifkan firewall.</td>
+                    <td></td>
+                  </tr>
+
+                  <tr>
+                    <td><code>sudo ufw reset</code></td>
+                    <td>
+                      Mereset UFW (menghapus semua aturan dan menonaktifkan).
+                      <b>Gunakan dengan sangat hati-hati!</b>
+                    </td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h2 id="iptables">3. Penerapan Firewall IPTables</h2>
+            <p>
+              IPTables adalah utilitas baris perintah yang telah lama menjadi
+              standar untuk mengkonfigurasi firewall Netfilter. UFW sendiri
+              hanyalah antarmuka yang menyederhanakan perintah IPTables.
+            </p>
+            <p>
+              Sebelum memahami IPTables secara dalam, kita harus tau tiga konsep
+              intinya: Tabel (Tables), Rantai (Chains), dan Aturan (Rules).
+            </p>
+
+            <div class="table-responsive mt-4 mb-5">
+              <table class="table table-bordered table-hover">
+                <thead class="table-custom">
+                  <tr>
+                    <th scope="col">Komponen</th>
+                    <th scope="col">Deskripsi</th>
+                    <th scope="col">Fungsi</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Tabel (Tables)</td>
+                    <td>
+                      Kumpulan Rantai yang dikelompokkan berdasarkan tujuan
+                      spesifik.
+                    </td>
+                    <td>
+                      Memisahkan aturan firewall, NAT, dan modifikasi paket.
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>Rantai (Chains)</td>
+                    <td>Urutan aturan yang harus dilewati oleh paket.</td>
+                    <td>
+                      Menentukan titik di mana paket dievaluasi dalam alur
+                      jaringan (flow).
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>Aturan (Rules)</td>
+                    <td>
+                      Perintah tunggal yang menentukan kriteria pencocokan dan
+                      tindakan.
+                    </td>
+                    <td>
+                      Mencocokkan paket (berdasarkan IP, port, protokol, dll.)
+                      dan memutuskan nasibnya.
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <p>
+              Tabel filter, Ini adalah tabel yang paling sering kita gunakan
+              untuk membangun firewall.
+            </p>
+
+            <div class="table-responsive mt-4 mb-5">
+              <table class="table table-bordered table-hover">
+                <thead class="table-custom">
+                  <tr>
+                    <th scope="col">Chains</th>
+                    <th scope="col">Kapan Digunakan</th>
+                    <th scope="col">Tujuan</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>INPUT</td>
+                    <td>Paket yang masuk ke server.</td>
+                    <td>
+                      Melindungi layanan server (SSH, Web Server, Database).
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>OUTPUT</td>
+                    <td>Paket yang keluar dari server</td>
+                    <td>
+                      Mengontrol koneksi keluar (misalnya, server Anda
+                      menghubungi API eksternal).
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>FORWARD</td>
+                    <td>Paket yang melewati server.</td>
+                    <td>
+                      Mengontrol lalu lintas antar jaringan yang dilewati
+                      server.
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <p>
+              Tabel NAT (Network Address Translation), Digunakan untuk
+              memodifikasi alamat IP atau port dalam header paket.
+            </p>
+            <div class="table-responsive mt-4 mb-5">
+              <table class="table table-bordered table-hover">
+                <thead class="table-custom">
+                  <tr>
+                    <th scope="col">Chains</th>
+                    <th scope="col">Kapan Digunakan</th>
+                    <th scope="col">Contoh</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>PREROUTING</td>
+                    <td>Mengubah alamat tujuan sebelum keputusan routing.</td>
+                    <td>
+                      Port Forwarding (misalnya, mengubah permintaan Port 80
+                      dari internet menjadi Port 8080 di server lokal).
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>POSTROUTING</td>
+                    <td>Mengubah alamat sumber setelah keputusan routing.</td>
+                    <td>Masquerading (Berbagi internet/NAT).</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <p>
+              Targets, Setiap aturan yang cocok dengan paket harus mengambil
+              tindakan. Keputusan utama yang sering digunakan adalah:
+            </p>
+            <div class="table-responsive mt-4 mb-5">
+              <table class="table table-bordered table-hover">
+                <thead class="table-custom">
+                  <tr>
+                    <th scope="col">Targets</th>
+                    <th scope="col">Tindakan</th>
+                    <th scope="col">Efek</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>ACCEPT</td>
+                    <td>Izinkan paket.</td>
+                    <td>
+                      Paket akan diizinkan untuk melalui server. (contohnya:
+                      ping akan replay)
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>DROP</td>
+                    <td>Abaikan paket tanpa memberi tahu pengirim.</td>
+                    <td>
+                      Koneksi akan timeout (penyerang tidak tahu server ada).
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>REJECT</td>
+                    <td>
+                      Abaikan paket, tetapi kirim pemberitahuan (ICMP/TCP RST)
+                      ke pengirim.
+                    </td>
+                    <td>
+                      Koneksi akan ditolak seketika (lebih informatif bagi
+                      pengirim).
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <p>Sintaks perintah dasar dari IPTables</p>
+            <pre
+              class="mb-5"
+            ><code>iptables [-t table] [-A/I/D chain] [kriteria] [-j target]
+</code></pre>
+
+            <p>Pilihan opsi yang sering digunakan di sintaks iptables.</p>
+            <div class="table-responsive mt-3 mb-5">
+              <table class="table table-bordered table-hover">
+                <thead class="table-custom">
+                  <tr>
+                    <th scope="col">Opsi</th>
+                    <th scope="col">Keterangan</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>-t table</td>
+                    <td>Menentukan tabel (default adalah filter).</td>
+                  </tr>
+
+                  <tr>
+                    <td>-A chain</td>
+                    <td>Menambahkan aturan ke akhir rantai.</td>
+                  </tr>
+
+                  <tr>
+                    <td>-I chain</td>
+                    <td>Menambahkan aturan ke awal rantai (sisip).</td>
+                  </tr>
+
+                  <tr>
+                    <td>-D chain</td>
+                    <td>Menghapus aturan.</td>
+                  </tr>
+
+                  <tr>
+                    <td>-p protocol</td>
+                    <td>Mencocokkan protokol (tcp, udp, icmp, all).</td>
+                  </tr>
+
+                  <tr>
+                    <td>--dport N</td>
+                    <td>
+                      Mencocokkan port tujuan (hanya dengan -p tcp atau -p udp).
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>-s IP/CIDR</td>
+                    <td>Mencocokkan alamat sumber (Source).</td>
+                  </tr>
+
+                  <tr>
+                    <td>-d IP/CIDR</td>
+                    <td>Mencocokkan alamat tujuan (Destination).</td>
+                  </tr>
+
+                  <tr>
+                    <td>-j target</td>
+                    <td>Tentukan tindakan/keputusan.</td>
+                  </tr>
+
+                  <tr>
+                    <td>-P</td>
+                    <td>
+                      Menentukan tindakan akhir untuk semua paket yang tidak
+                      cocok dengan aturan manapun dalam rantai.
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <p>
+              Contoh konfigurasi awal (firewall dasar iptables). Atur kebijakan
+              default, Kita ingin memblokir semua lalu lintas masuk dan
+              forwarding secara default, dan hanya mengizinkan yang kita
+              definisikan.
+            </p>
+            <pre
+              class="mb-5"
+            ><code># Set default policy untuk DROP (blokir semua)
+sudo iptables -P INPUT DROP
+sudo iptables -P FORWARD DROP
+
+# Izinkan semua lalu lintas keluar (default aman untuk server, agar server tetap bisa mengakses internet)
+sudo iptables -P OUTPUT ACCEPT
+</code></pre>
+
+            <p>
+              Izinkan loopback (lokal), Lalu lintas loopback (lalu lintas
+              internal) penting agar layanan server dapat berkomunikasi satu
+              sama lain.
+            </p>
+            <pre class="mb-5"><code>sudo iptables -A INPUT -i lo -j ACCEPT
+sudo iptables -A OUTPUT -o lo -j ACCEPT
+</code></pre>
+
+            <p>
+              Izinkan Koneksi yang Ada dan Terkait (Stateful), Ini adalah aturan
+              penting. Setelah koneksi diizinkan (misalnya, kita login SSH),
+              semua paket yang merupakan bagian dari sesi yang sama diizinkan
+              tanpa diperiksa lagi.
+            </p>
+            <pre
+              class="mb-5"
+            ><code>sudo iptables -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
+</code></pre>
+
+            <p>
+              Buka layanan penting, contohnya Port SSH (Port 22) dan HTTP/HTTPS
+              (Web).
+            </p>
+            <pre class="mb-5"><code># Izinkan SSH (hanya TCP)
+sudo iptables -A INPUT -p tcp --dport 22 -j ACCEPT
+
+# Izinkan HTTP (Port 80) dan HTTPS (Port 443)
+sudo iptables -A INPUT -p tcp --dport 80 -j ACCEPT
+sudo iptables -A INPUT -p tcp --dport 443 -j ACCEPT
+</code></pre>
+
+            <p>
+              Agar aturan tidak hilang setelah reboot (jika Anda menggunakan
+              iptables-persistent) save dengen menggunakan perintah berikut:
+            </p>
+            <pre class="mb-5"><code>sudo netfilter-persistent save
+</code></pre>
+
+            <p>
+              Untuk melihat apa saja aturan yang sudah kita buat, bisa
+              menggunakan perintah berikut.
+            </p>
+            <pre
+              class="mb-5"
+            ><code># Tampilkan aturan dalam format tabel (default filter)
+sudo iptables -L -v -n
+</code></pre>
           </section>
 
           <!-- <div class="alert alert-custom" role="alert">

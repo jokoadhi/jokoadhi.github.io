@@ -25,7 +25,8 @@ body {
 }
 
 /* Gaya Blok Kode */
-pre {
+pre,
+.table-custom tr th {
   background-color: #343a40; /* Hitam gelap */
   color: #f8f9fa; /* Putih terang */
   padding: 15px;
