@@ -133,14 +133,14 @@
               Pastikan ONT (ONU) sudah terpasang dan terdeteksi di OLT namun
               belum terkonfigurasi.
             </p>
-            <pre><code>show gpon onu uncfg</code></pre>
+            <pre><code>ZXAN#show gpon onu uncfg</code></pre>
             <br />
             <h3>2. Cek List ONT yang Sudah Ada pada PON Tertentu</h3>
             <p>
               Cek ONT apa saja yang sudah terdaftar pada OLT 1/1/2
               (Frame/Slot/Pon).
             </p>
-            <pre><code>show run interface gpon-olt_1/1/2</code></pre>
+            <pre><code>ZXAN#show run interface gpon-olt_1/1/2</code></pre>
             <p>
               <em
                 >(Output ini akan memunculkan nomor urut ONT yang sudah
@@ -153,7 +153,7 @@
               Masuk pada Pon yang ONT-nya akan diregistrasi. Contoh ini
               menggunakan Pon 2.
             </p>
-            <pre><code>interface gpon-olt_1/1/2</code></pre>
+            <pre><code>ZXAN(config)#interface gpon-olt_1/1/2</code></pre>
             <br />
             <h3>4. Registrasi ONT</h3>
             <p>
@@ -173,7 +173,7 @@
               Setelah registrasi berhasil (cek dengan perintah No. 2), masuk ke
               mode konfigurasi ONT tersebut.
             </p>
-            <pre><code>interface gpon-onu_1/1/2:31</code></pre>
+            <pre><code>ZXAN(config)#interface gpon-onu_1/1/2:31</code></pre>
             <br />
             <h3>6. Konfigurasi Service dan T-CONT/GEMPORT (PPPoE Bridge)</h3>
             <p>
@@ -238,21 +238,21 @@ wan-ip 1 mode pppoe username testing password 12345678 vlan-profile pppoe100</co
               Melihat nilai redaman optik ONT (nilai yang digarisbawahi/berwarna
               merah pada output adalah redaman ONT).
             </p>
-            <pre><code>show pon power attenuation gpon-onu_1/1/2:31</code></pre>
+            <pre><code>ZXAN#show pon power attenuation gpon-onu_1/1/2:31</code></pre>
             <br />
             <h3>2. Melihat Status ONT (Dying/Los)</h3>
             <p>
               Melihat status semua ONT pada PON 2. Untuk melihat satu ONT,
               tambahkan nomor urut di akhir perintah.
             </p>
-            <pre><code>show gpon onu state gpon-olt_1/1/2</code></pre>
+            <pre><code>ZXAN#show gpon onu state gpon-olt_1/1/2</code></pre>
             <br />
             <h3>3. Melihat Info Detail ONT</h3>
             <p>
               Melihat informasi detail, seperti serial number, *software
               version*, dan lainnya.
             </p>
-            <pre><code>show gpon onu detail-info gpon-onu_1/1/2:31</code></pre>
+            <pre><code>ZXAN#show gpon onu detail-info gpon-onu_1/1/2:31</code></pre>
             <br />
             <h3>4. Reboot/Restart ONT</h3>
             <p>Masuk ke mode manajemen ONU lalu kirim perintah *reboot*.</p>
@@ -262,8 +262,45 @@ yes</code></pre>
             <br />
             <h3>5. Menghapus ONT yang Sudah Terdaftar</h3>
             <p>Menghapus registrasi ONT dari OLT.</p>
-            <pre><code>interface gpon-olt_1/1/2
+            <pre><code>ZXAN(config)#interface gpon-olt_1/1/2
 no onu 31</code></pre>
+            <br />
+            <h3>
+              6. Mencari ONT Pelanggan Yang Sudah Terdaftar Berdasarkan Nama
+            </h3>
+            <p>
+              Untuk dapat mencari ONT pelanggan berdasarkan nama adalah
+              menggunakan perintah dibawah, nanti akan muncul nama pelanggan dan
+              juga ID OLT dan PON.
+            </p>
+            <p>
+              bisa kita lihat untuk ONT yang sedang kita cari tidak memunculkan
+              ID OLT dan PON nya, untuk itu kita bisa melihat ID OLT dan PON
+              pada pelanggan berikutnya, jadi urutan ONT yang kita cari tinggal
+              dikurangi satu.
+            </p>
+            <pre><code>#perintah
+ZXAN#show running-config | begin PUGUH
+
+#output dari perintah
+name 0101011503165-EDI BUDIARTO (PUGUH RW)-KRAJAN
+  description 49$$0101011503165-EDI BUDIARTO (PUGUH RW)-KRAJAN$$
+  sn-bind enable sn
+  tcont 1 name tcont_1 profile pppoe
+  gemport 1 name gem_1 tcont 1
+  encrypt 1 enable downstream
+  service-port 1 vport 1 user-vlan 100 vlan 100 
+!
+interface gpon-onu_1/1/3:50
+  name 0101011503201-MUJI PRASTYOWATI (TYAS KRAJAN)
+  description 50$$0101011503201-MUJI PRASTYOWATI (TYAS KRAJAN)$$
+  sn-bind enable sn
+  tcont 1 name tcont profile pppoe
+  gemport 1 name gem tcont 1
+  encrypt 1 enable downstream
+  service-port 1 vport 1 user-vlan 100 vlan 100 
+!
+</code></pre>
           </article>
 
           <hr />
