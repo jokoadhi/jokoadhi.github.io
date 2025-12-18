@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rollback Ubuntu</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Mono&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="../../../style/style2.css" />
+    <link rel="icon" type="image/png" href="/ico.png" />
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4435345623883384"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand ms-3" href="/../../index.html"
+          >📚 Joko Adhi Docs</a
+        >
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto me-3">
+            <li class="nav-item">
+              <a class="nav-link" href="/../../index.html#modules"
+                >Modul Utama</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/../../index.html#about">Tentang</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container-fluid">
+      <div class="row">
+        <nav
+          id="sidebarMenu"
+          class="col-md-3 col-lg-2 d-md-block sidebar collapse"
+        >
+          <div class="position-sticky pt-3">
+            <h5
+              class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted text-uppercase"
+            >
+              Sistem Operasi & Server
+            </h5>
+
+            <hr class="my-3" />
+            <h6
+              class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted text-uppercase"
+            >
+              Daftar isi
+            </h6>
+
+            <ul class="nav flex-column mb-2">
+              <li class="nav-item">
+                <a class="nav-link font-weight-bold" href="#awal">
+                  1. Apa itu Rollback
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link font-weight-bold" href="#kendala">
+                  2. Kendalanya
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link font-weight-bold" href="#main">
+                  3. Tahapan Rollback
+                </a>
+              </li>
+            </ul>
+
+            <hr class="my-3" />
+
+            <div class="p-3 text-center">
+              <div
+                style="
+                  background-color: #f8f9fa;
+                  height: 250px;
+                  border: 1px dashed #ccc;
+                  padding: 10px;
+                "
+              >
+                <small class="d-block mt-2 text-muted">Sponsor Ads</small>
+              </div>
+            </div>
+          </div>
+        </nav>
+
+        <main class="col-md-9 ms-sm-auto col-lg-10 main-content">
+          <div class="container-fluid breadcrumb-fixed-offset mb-4">
+            <nav style="--bs-breadcrumb-divider: '>'" aria-label="breadcrumb">
+              <ol class="breadcrumb mb-0">
+                <li class="breadcrumb-item"><a href="/">Home</a></li>
+
+                <li class="breadcrumb-item active" aria-current="page">
+                  Rollback Versi Kernel Ubuntu Desk
+                </li>
+              </ol>
+            </nav>
+          </div>
+
+          <h1 class="mb-4">CARA ROLLBACK VERSI KERNEL UBUNTU DESK</h1>
+          <p class="text-muted">Diperbarui: 18 Desember 2025</p>
+
+          <hr class="mb-3" />
+
+          <section id="awal" class="mb-5 mt-4">
+            <h2>1. Apa itu Rollback dan Fungsinya?</h2>
+            <p>
+              Rollback dalam arti bahasa adalah tindakan menurunkan versi suatu
+              software dari versi sekarang ke versi sebelumnya.
+            </p>
+            <p>
+              Lalu apa fungsi dari rollback tersebut?, fungsinya adalah semisal
+              menemui adanya error atau bug pada versi terbaru, terus sudah
+              dilakukan semua troubleshooting yang ada tetapi tetap tidak
+              berhasil, langkah terakhir yang bisa dilakukan adalah dengan cara
+              menurunkan versi ke sebelumnya, contoh yang akan saya lakukan ini
+              adalah rollback kernel pada ubuntu desktop 24.04
+            </p>
+          </section>
+
+          <section id="kendala" class="mb-5 mt-4">
+            <h2>2. Kendala Yang Saya Hadapi</h2>
+            <p>
+              Kendala yang saya hadapi adalah setelah melakukan update pada
+              ubuntu desktop ke versi kernel 6.14.0-37-generic, setelah saya
+              restart muncul error atau bug seperti ini, tiba" wifi tidak
+              muncul, kecerahan layar tidak bisa diatur, speaker tidak muncul
+              suara, backlight keyboard tidak berfungsi, lalu saya coba
+              troubleshooting awal yaitu update software driver dan lainnya,
+              tetap tidak menunjukkan hasil, akhirnya saya putuskan untuk
+              rollback ke versi kernel 6.14.0-36-generic lalu bisa berjalan
+              normal.
+            </p>
+          </section>
+
+          <section id="main" class="mb-5 mt-4">
+            <h2>3. Tahapan Melakukan Rollback Versi</h2>
+            <p>
+              untuk langkah awal adalah mencoba melakukan rollback ke versi
+              sebelumnya dengan cara masuk ke halaman GRUB, untuk cara masuk ke
+              halaman GRUB adalah restart laptop/PC lalu sebelum muncul logo
+              tekan tahan tombol SHIFT kiri sampai muncul halaman GRUB nya
+              seperti gambar dibawah, lalu pilih menu
+              <b>Advanced options for Ubuntu</b>.
+            </p>
+            <figure class="figure mt-0 mb-4">
+              <img
+                src="/../../img/rollback/1.png"
+                class="img-fluid rounded shadow"
+                alt="buka menu mangle"
+              />
+              <figcaption class="figure-caption text-center mt-2">
+                Gambar 1.0: buka halaman GRUB.
+              </figcaption>
+            </figure>
+
+            <p>
+              jika sudah memilih akan muncul halaman list versi kernel yang
+              sekarang, biasanya kernel yang tersimpan adalah versi kernel
+              terbaru dan sebelumnya, kenapa punya saya hanya muncul 1 versi?,
+              karena versi terbaru yang memiliki bug tadi sudah saya hapus,
+              tinggal kernel versi ini yang saya gunakan, karena yang stabil
+              adalah versi ini. <br /><br />
+
+              lalu pilih kernel versi sebelumnya (yang tidak ada tulisan
+              recovery mode) terus klik Enter untuk booting ke versi kernel yang
+              dipilih tersebut.
+            </p>
+            <figure class="figure mt-0 mb-4">
+              <img
+                src="/../../img/rollback/2.png"
+                class="img-fluid rounded shadow"
+                alt="buka menu mangle"
+              />
+              <figcaption class="figure-caption text-center mt-2">
+                Gambar 1.0: pilih versi kernel.
+              </figcaption>
+            </figure>
+
+            <p>
+              jika booting sudah selesai lalu sudah masuk ke desktop, harusnya
+              semua masalah yang sebelumnya terjadi akan normal kembali.
+            </p>
+
+            <p>
+              tapi setelah laptop/PC direstart akan otomatis pindah ke versi
+              kernel terbaru lagi lalu akan terkendala lagi, untuk mengatasi hal
+              tersebut, kita harus menghapus kernel terbarunya dengan cara
+              menjalankan perintah ini.
+            </p>
+            <pre><code>joko@ubuntu-desk:~$ sudo apt purge linux-image-6.14.0-37-generic linux-headers-6.14.0-37-generic linux-modules-6.14.0-37-generic linux-modules-extra-6.14.0-37-generic
+</code></pre>
+
+            <p>
+              Setelah dihapus, kita harus memberi tahu sistem bahwa daftar
+              kernel sudah berubah:
+            </p>
+            <pre><code>joko@ubuntu-desk:~$ sudo update-grub
+</code></pre>
+
+            <p>
+              jika sudah, harusnya ketika laptop/PC direstart, versi kernel akan
+              tetap menggunakan yang versi stabil ini, tidak akan berpindah ke
+              yang terbaru lagi (yang memiliki bug).
+            </p>
+
+            <p>
+              optional tapi disarankan, tahan update kernel sementara dengan
+              cara:
+            </p>
+            <pre><code>joko@ubuntu-desk:~$ sudo apt-mark hold linux-image-6.14.0-36-generic linux-headers-6.14.0-36-generic
+</code></pre>
+
+            <p>lalu untuk melepas tahanan adalah dengan cara ini:</p>
+            <pre><code>joko@ubuntu-desk:~$ sudo apt-mark unhold linux-image-6.14.0-36-generic linux-headers-6.14.0-36-generic
+</code></pre>
+
+            <div class="alert alert-custom" role="alert">
+              💡 Penting:
+              <ul>
+                <li>
+                  <b>hold</b>: Memberitahu sistem, "Jangan sentuh atau update
+                  paket ini, saya mau tetap di versi ini."
+                </li>
+                <li>
+                  <b>unhold</b>: Memberitahu sistem, "Silakan update paket ini
+                  kembali jika ada versi baru yang tersedia di repositori."
+                </li>
+              </ul>
+            </div>
+          </section>
+
+          <!-- <div class="alert alert-custom" role="alert">
+              **💡 Penting:** [Sistem Operasi] adalah otak dari komputer dan
+              server.
+            </div> -->
+
+          <!-- <pre><code>
+# Perintah untuk melihat konfigurasi jaringan di Linux
+ip a
+  
+# Perintah untuk menguji koneksi
+ping 8.8.8.8
+                    </code></pre> -->
+
+          <hr />
+
+          <div class="text-center mt-5 mb-5 p-3 bg-light rounded shadow-sm">
+            **Selesai.** Anda telah mencapai akhir dari topik ini. Silakan pilih
+            topik lain melalui Sidebar di sebelah kiri atau kembali ke
+            <a href="/../../index.html" class="text-decoration-none"
+              >Halaman Modul Utama</a
+            >.
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
