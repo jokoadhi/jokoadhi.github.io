@@ -40,19 +40,26 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // --- C. CEK STATUS AKSES VIP ---
   const modalEl = document.getElementById("paymentModal");
-  const mainContent = document.querySelector(".main-content");
+  // PRIORITAS: Cari main-content-vip dulu, jika tidak ada baru main-content biasa
+  const mainContent =
+    document.querySelector(".main-content-vip") ||
+    document.querySelector(".main-content");
 
   if (modalEl && mainContent) {
     paymentModal = new bootstrap.Modal(modalEl);
     const isUnlocked = localStorage.getItem("is_isolir_unlocked");
 
-    if (isUnlocked === "true") {
-      // User sudah beli, tampilkan loading verifikasi otomatis
-      handleAlreadyUnlocked(mainContent);
+    // Hanya jalankan logika penguncian jika halaman memiliki class 'main-content-vip'
+    if (mainContent.classList.contains("main-content-vip")) {
+      if (isUnlocked === "true") {
+        handleAlreadyUnlocked(mainContent);
+      } else {
+        mainContent.style.display = "none";
+        paymentModal.show();
+      }
     } else {
-      // User belum beli
-      mainContent.style.display = "none";
-      paymentModal.show();
+      // Jika halaman modul biasa (bukan VIP), pastikan konten tampil
+      mainContent.style.display = "block";
     }
   }
 });
@@ -173,7 +180,9 @@ function unlockWithAnimation() {
   const overlay = document.getElementById("loadingOverlay");
   const loaderStatus = document.getElementById("loaderStatus");
   const loadingText = document.getElementById("loadingText");
-  const mainContent = document.querySelector(".main-content");
+  const mainContent =
+    document.querySelector(".main-content-vip") ||
+    document.querySelector(".main-content");
 
   if (paymentModal) paymentModal.hide();
 
@@ -214,17 +223,12 @@ function unlockWithAnimation() {
   }
 }
 
-// --- G. LOGIKA TOMBOL BAYAR (MODIFIKASI) ---
+// --- G. LOGIKA TOMBOL BAYAR ---
 const payBtn = document.getElementById("paySaweria");
 if (payBtn) {
   payBtn.addEventListener("click", function (e) {
-    // 1. Cegah link membuka tab baru secara langsung
     e.preventDefault();
-
-    // Ambil link tujuan dari atribut href
     const urlTujuan = this.getAttribute("href");
-
-    // 2. Tampilkan Instruksi SweetAlert Terlebih Dahulu
     Swal.fire({
       title: "Instruksi Pembayaran",
       html: `
@@ -243,7 +247,6 @@ if (payBtn) {
       confirmButtonText: "Lanjut ke Pembayaran",
       cancelButtonText: "Batal",
     }).then((result) => {
-      // 3. Jika user klik "Lanjut ke Pembayaran", baru buka tab baru
       if (result.isConfirmed) {
         window.open(urlTujuan, "_blank");
       }

@@ -213,6 +213,10 @@ body {
   position: relative; /* Penting untuk posisi kilauan */
   overflow: hidden; /* Memotong kilauan agar tetap di dalam label */
   display: inline-block;
+  /* TAMBAHKAN INI */
+  white-space: nowrap; /* Mencegah teks turun ke bawah */
+  flex-shrink: 0; /* Mencegah label menyusut di dalam flexbox */
+  margin-left: 10px; /* Memberi jarak aman dari teks judul */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.2);
   cursor: default;
