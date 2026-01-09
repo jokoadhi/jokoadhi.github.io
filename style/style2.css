@@ -42,3 +42,50 @@ pre,
   background-color: #e9f0ff;
   color: #0d6efd;
 }
+
+/* Overlay Loading Full Screen */
+#loadingOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(30, 30, 30, 0.9); /* Gelap Dof */
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+/* Animasi Spinner Simple */
+.spinner-vip {
+  width: 50px;
+  height: 50px;
+  border: 5px solid #f3f3f3;
+  border-top: 5px solid #ffc107; /* Warna Kuning Saweria */
+  border-radius: 50%;
+  animation: spin-vip 1s linear infinite;
+  margin-bottom: 20px;
+}
+
+@keyframes spin-vip {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.success-icon {
+  font-size: 50px;
+  color: #28a745;
+  margin-bottom: 20px;
+}
+
+/* Hanya menyembunyikan konten yang memiliki class khusus VIP */
+.main-content-vip {
+  display: none;
+}
