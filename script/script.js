@@ -117,7 +117,7 @@ if (btnVerify) {
       return Swal.fire({
         icon: "warning",
         title: "Oops...",
-        text: "Silakan masukkan ID Transaksi terlebih dahulu!",
+        text: "Silakan masukkan Email Transaksi terlebih dahulu!",
         confirmButtonColor: "#212529",
       });
     }
@@ -157,7 +157,7 @@ if (btnVerify) {
         Swal.fire({
           icon: "question",
           title: "Tidak Ditemukan",
-          text: "ID Transaksi tidak ditemukan. Pastikan Anda sudah membayar atau tunggu aktivasi manual dari Admin.",
+          text: "Email Transaksi tidak ditemukan. Pastikan Anda sudah membayar atau tunggu aktivasi manual dari Admin.",
           confirmButtonColor: "#212529",
         });
       }
@@ -236,8 +236,8 @@ if (payBtn) {
             <p>Setelah mengklik tombol di bawah:</p>
             <ol>
               <li>Selesaikan pembayaran di halaman <b>Saweria</b>.</li>
-              <li><b>PENTING:</b> Simpan/Salin <b>ID Transaksi</b> yang muncul di layar sukses atau email (Contoh: SWR-2026XXX).</li>
-              <li>Kembali ke sini dan masukkan ID tersebut untuk membuka modul.</li>
+              <li><b>PENTING:</b> Simpan/Salin <b>Email Transaksi</b> yang muncul di layar sukses (Contoh: tes@gmail.com).</li>
+              <li>Kembali ke sini dan masukkan Email tersebut untuk membuka modul.</li>
             </ol>
           </div>`,
       icon: "info",
