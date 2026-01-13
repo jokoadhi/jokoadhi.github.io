@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Konversi Foto ke PDF - Joko Adhi Docs</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../../style/style2.css" />
+    <link rel="icon" type="image/png" href="/ico.png" />
+    <style>
+      .upload-area {
+        border: 2px dashed #ccc;
+        border-radius: 15px;
+        padding: 40px;
+        text-align: center;
+        cursor: pointer;
+        transition: 0.3s;
+        background: #f9f9f9;
+      }
+      .upload-area:hover {
+        border-color: #ff9800;
+        background: #fffdf5;
+      }
+      #previewContainer img {
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+        border-radius: 8px;
+        margin: 5px;
+        border: 1px solid #ddd;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container">
+        <a class="navbar-brand ms-3" href="/">📚 Joko Adhi Docs</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto me-3">
+            <li class="nav-item">
+              <a class="nav-link" href="/">Home</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <main class="py-5">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
+            <div class="container-fluid mb-4">
+              <nav style="--bs-breadcrumb-divider: '>'" aria-label="breadcrumb">
+                <ol class="breadcrumb mb-0">
+                  <li class="breadcrumb-item"><a href="/">Home</a></li>
+                  <li class="breadcrumb-item active">Alat</li>
+                  <li class="breadcrumb-item active" aria-current="page">
+                    Foto ke PDF
+                  </li>
+                </ol>
+              </nav>
+            </div>
+            <h1 class="fw-bold text-uppercase">Foto ke PDF</h1>
+            <p class="text-muted">
+              Ubah file gambar (JPG/PNG) menjadi dokumen PDF secara instan.
+            </p>
+            <hr class="mb-5" />
+
+            <div class="card border-0 shadow-sm p-4 p-md-5 rounded-4">
+              <div
+                class="upload-area"
+                onclick="document.getElementById('imageInput').click()"
+              >
+                <h4 class="fw-bold">Pilih atau Seret Foto</h4>
+                <p class="text-muted small">Mendukung JPG, PNG, WEBP</p>
+                <input
+                  type="file"
+                  id="imageInput"
+                  hidden
+                  multiple
+                  accept="image/*"
+                />
+                <button class="btn btn-warning fw-bold mt-2">Pilih File</button>
+              </div>
+
+              <div
+                id="previewContainer"
+                class="mt-4 d-flex flex-wrap justify-content-center"
+              ></div>
+
+              <div id="actionArea" class="mt-4 d-none text-center">
+                <button
+                  class="btn btn-success btn-lg w-100 fw-bold"
+                  onclick="generatePDF()"
+                >
+                  KONVERSI KE PDF
+                </button>
+                <button
+                  class="btn btn-link text-danger mt-2"
+                  onclick="resetConverter()"
+                >
+                  Hapus Semua
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="/script/script.js"></script>
+  </body>
+</html>

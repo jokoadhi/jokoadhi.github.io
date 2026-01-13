@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IP Subnet Calculator - Joko Adhi Docs</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../../style/style2.css" />
+    <link rel="icon" type="image/png" href="/ico.png" />
+    <style>
+      .card-subnet {
+        border: none;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      }
+      .res-value {
+        font-family: "Roboto Mono", monospace;
+        font-weight: bold;
+        color: #ff9800;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container">
+        <a class="navbar-brand" href="/">📚 Joko Adhi Docs</a>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <main class="py-5">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
+            <div class="container-fluid mb-4">
+              <nav style="--bs-breadcrumb-divider: '>'" aria-label="breadcrumb">
+                <ol class="breadcrumb mb-0">
+                  <li class="breadcrumb-item"><a href="/">Home</a></li>
+                  <li class="breadcrumb-item active">Alat</li>
+                  <li class="breadcrumb-item active" aria-current="page">
+                    Kalkulator Subnet
+                  </li>
+                </ol>
+              </nav>
+            </div>
+            <h1 class="fw-bold text-uppercase">Kalkulator Subnet</h1>
+            <p class="text-muted">
+              Hitung Network ID, Broadcast, dan Host Range dengan cepat.
+            </p>
+            <hr class="mb-5" />
+
+            <div class="card card-subnet p-4">
+              <div class="row g-3">
+                <div class="col-md-8">
+                  <label class="form-label fw-bold">IP Address</label>
+                  <input
+                    type="text"
+                    id="ipAddress"
+                    class="form-control form-control-lg"
+                    placeholder="Contoh: 192.168.1.1"
+                  />
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label fw-bold">CIDR (Prefix)</label>
+                  <select
+                    id="cidrPrefix"
+                    class="form-select form-select-lg"
+                  ></select>
+                </div>
+                <div class="col-12 mt-4">
+                  <button
+                    class="btn btn-warning w-100 fw-bold py-3"
+                    onclick="calculateSubnet()"
+                  >
+                    HITUNG SEKARANG
+                  </button>
+                </div>
+              </div>
+
+              <div id="subnetResult" class="mt-5 d-none">
+                <h5 class="fw-bold mb-3">Informasi Jaringan:</h5>
+                <div class="table-responsive">
+                  <table class="table table-hover border">
+                    <tbody>
+                      <tr>
+                        <td>IP Class</td>
+                        <td class="text-end res-value" id="classRes">-</td>
+                      </tr>
+                      <tr>
+                        <td>Netmask</td>
+                        <td class="text-end res-value" id="netmaskRes">-</td>
+                      </tr>
+                      <tr>
+                        <td>Network ID</td>
+                        <td class="text-end res-value" id="networkRes">-</td>
+                      </tr>
+                      <tr>
+                        <td>Broadcast Address</td>
+                        <td class="text-end res-value" id="broadcastRes">-</td>
+                      </tr>
+                      <tr>
+                        <td>First Host</td>
+                        <td class="text-end res-value" id="firstRes">-</td>
+                      </tr>
+                      <tr>
+                        <td>Last Host</td>
+                        <td class="text-end res-value" id="lastRes">-</td>
+                      </tr>
+                      <tr>
+                        <td>Total Hosts</td>
+                        <td class="text-end res-value" id="totalRes">-</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    <script src="/script/script.js"></script>
+  </body>
+</html>

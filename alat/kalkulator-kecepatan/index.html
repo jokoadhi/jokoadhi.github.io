@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kalkulator Kecepatan Internet - Joko Adhi Docs</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Mono&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../../style/style2.css" />
+    <link rel="icon" type="image/png" href="/ico.png" />
+
+    <style>
+      .card-tool {
+        border: none;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        background: #fff;
+      }
+      .unit-label {
+        font-family: "Roboto Mono", monospace;
+        font-weight: bold;
+        color: #ff9800;
+      }
+      .form-control-lg {
+        border: 2px solid #eee;
+        border-radius: 10px;
+        font-family: "Roboto Mono", monospace;
+      }
+      .form-control-lg:focus {
+        border-color: #ffc107;
+        box-shadow: none;
+      }
+      .conversion-info {
+        font-size: 0.85rem;
+        color: #6c757d;
+      }
+      /* Optimasi Ukuran Teks untuk Mobile */
+      @media (max-width: 576px) {
+        h1 {
+          font-size: 1.5rem !important;
+        }
+        .card-tool {
+          padding: 1.5rem !important;
+        }
+        .unit-label {
+          font-size: 1.1rem !important;
+          margin-top: 5px;
+          display: block;
+          width: 100%;
+          text-align: left; /* Atau right jika lebih suka mepet kanan */
+        }
+      }
+
+      /* Memastikan unit-label tetap terlihat menonjol */
+      .unit-label {
+        font-family: "Roboto Mono", monospace;
+        font-weight: bold;
+        color: #ff9800;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container">
+        <a class="navbar-brand ms-3" href="/">📚 Joko Adhi Docs</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto me-3">
+            <li class="nav-item">
+              <a class="nav-link" href="/">Home</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <main class="py-5">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
+            <div class="container-fluid mb-4">
+              <nav style="--bs-breadcrumb-divider: '>'" aria-label="breadcrumb">
+                <ol class="breadcrumb mb-0">
+                  <li class="breadcrumb-item"><a href="/">Home</a></li>
+                  <li class="breadcrumb-item active">Alat</li>
+                  <li class="breadcrumb-item active" aria-current="page">
+                    Kalkulator Kecepatan
+                  </li>
+                </ol>
+              </nav>
+            </div>
+
+            <h1 class="mb-2 text-uppercase fw-bold">
+              Kalkulator Kecepatan Internet
+            </h1>
+            <p class="text-muted mb-4">
+              Konversi otomatis satuan Mbps ke MBps, Gbps, dan lainnya.
+            </p>
+            <hr class="mb-5" />
+
+            <div class="card card-tool p-4 p-md-5">
+              <div class="row g-4">
+                <div class="col-md-6">
+                  <label class="form-label fw-bold">Input Kecepatan</label>
+                  <input
+                    type="number"
+                    id="inputValue"
+                    class="form-control form-control-lg bg-light"
+                    placeholder="Masukkan angka..."
+                  />
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label fw-bold">Dari Satuan</label>
+                  <select
+                    id="inputUnit"
+                    class="form-select form-select-lg bg-light"
+                  >
+                    <option value="bps">bps (bits per second)</option>
+                    <option value="mbps" selected>
+                      Mbps (Megabits per second)
+                    </option>
+                    <option value="mbps_byte">
+                      MBps (MegaBytes per second)
+                    </option>
+                    <option value="gbps">Gbps (Gigabits per second)</option>
+                    <option value="gbps_byte">
+                      GBps (GigaBytes per second)
+                    </option>
+                  </select>
+                </div>
+
+                <div class="col-12 mt-4 mt-md-5">
+                  <h5 class="fw-bold mb-3 mb-md-4">Hasil Konversi:</h5>
+                  <div
+                    class="list-group list-group-flush shadow-sm rounded-3 overflow-hidden border"
+                  >
+                    <div
+                      class="list-group-item d-flex flex-column flex-sm-row justify-content-between align-items-start align-items-sm-center p-3"
+                    >
+                      <span class="mb-1 mb-sm-0">Bits per second</span>
+                      <span class="unit-label fs-6 fs-sm-5" id="res-bps"
+                        >0 bps</span
+                      >
+                    </div>
+
+                    <div
+                      class="list-group-item d-flex flex-column flex-sm-row justify-content-between align-items-start align-items-sm-center p-3 bg-light"
+                    >
+                      <div class="mb-1 mb-sm-0">
+                        <span class="fw-bold">Megabits (Mbps)</span>
+                        <br class="d-none d-sm-inline" /><small
+                          class="text-muted d-block d-sm-inline"
+                          >Standar ISP</small
+                        >
+                      </div>
+                      <span class="unit-label fs-5" id="res-mbps">0 Mbps</span>
+                    </div>
+
+                    <div
+                      class="list-group-item d-flex flex-column flex-sm-row justify-content-between align-items-start align-items-sm-center p-3"
+                    >
+                      <div class="mb-1 mb-sm-0">
+                        <span class="fw-bold">MegaBytes (MBps)</span>
+                        <br class="d-none d-sm-inline" /><small
+                          class="text-muted d-block d-sm-inline"
+                          >Kecepatan Download</small
+                        >
+                      </div>
+                      <span
+                        class="unit-label fs-5 text-success"
+                        id="res-mbps-byte"
+                        >0 MB/s</span
+                      >
+                    </div>
+
+                    <div
+                      class="list-group-item d-flex flex-column flex-sm-row justify-content-between align-items-start align-items-sm-center p-3 bg-light"
+                    >
+                      <span class="mb-1 mb-sm-0">Gigabits (Gbps)</span>
+                      <span class="unit-label fs-6" id="res-gbps">0 Gbps</span>
+                    </div>
+
+                    <div
+                      class="list-group-item d-flex flex-column flex-sm-row justify-content-between align-items-start align-items-sm-center p-3"
+                    >
+                      <span class="mb-1 mb-sm-0">GigaBytes (GBps)</span>
+                      <span class="unit-label fs-6" id="res-gbps-byte"
+                        >0 GB/s</span
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="alert alert-info mt-5" role="alert">
+              <h5 class="alert-heading">💡 Tahukah Anda?</h5>
+              <p class="mb-0">
+                Ada perbedaan antara <b>bit (b kecil)</b> dan
+                <b>Byte (B besar)</b>. <br />
+                1 Byte sama dengan 8 bit. Jika Anda berlangganan internet 100
+                Mbps, maka kecepatan download maksimal yang Anda lihat di IDM
+                atau browser adalah 12.5 MB/s.
+              </p>
+            </div>
+
+            <div class="text-center mt-5 mb-5 p-3 bg-light rounded shadow-sm">
+              Kembali ke
+              <a href="/" class="text-decoration-none">Halaman Utama</a>.
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/script/script.js"></script>
+  </body>
+</html>
